@@ -1,0 +1,32 @@
+.top_menu {
+    margin: 0;
+    padding: 0;
+}
+
+/* .top_menu a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+} */
+
+
+
+.top_menu li {
+    /* display: inline; */
+}
+
+.top_menu li {
+    display: inline;
+    /* flex-direction: row;
+    align-items: center;
+    justify-content: center; */
+    padding: 10px 20px;
+    text-decoration: none;
+}
+
+.top_menu li a img{
+    width: 75px;
+}
+

@@ -1,12 +1,27 @@
-<p>App works!</p>
-<!-- <router-outlet></router-outlet> -->
-
 <header>
     <nav>
-        <ul class="top_menu">
-            <li><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }">Home</a></li>
+        <!-- <div class="top_menu">
+            <div><a routerLink="/" routerLinkActive="activa">Homem</a></div>
+            <div>|</div>
+            <div><a routerLink="/" routerLinkActive="activa">Mulher</a></div>
+            <div><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }"><img src="\assets\Imagens\logo.png" alt="Logo image"></a></div>
+            <div><a routerLink="/" routerLinkActive="activa">Criança</a></div>
+            <div>|</div>
+            <div><a routerLink="/" routerLinkActive="activa">Acessórios</a></div>
+        </div> -->
 
-            <li><a routerLink="/bootstrap" routerLinkActive="activa">Teste</a></li>
+        <ul class="top_menu">
+
+            
+            <li><a routerLink="/" routerLinkActive="activa">Homem</a></li>
+            <li><a routerLink="/" routerLinkActive="activa">Mulher</a></li>
+
+
+            <li><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }"><img src="\assets\Imagens\logo.png" alt="Logo image"></a></li>
+
+            <li><a routerLink="/" routerLinkActive="activa">Criança</a></li>
+            <li><a routerLink="/" routerLinkActive="activa">Acessórios</a></li>
+
         </ul>
     </nav>
 </header>

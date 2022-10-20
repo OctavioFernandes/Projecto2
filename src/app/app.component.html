@@ -1,3 +1,17 @@
 <p>App works!</p>
-<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Et quos animi enim pariatur expedita suscipit, officia eius natus error ad molestiae sequi earum, fuga optio est saepe asperiores architecto rerum?</p>
 <!-- <router-outlet></router-outlet> -->
+
+<header>
+    <nav>
+        <ul class="top_menu">
+            <li><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }">Home</a></li>
+
+            <li><a routerLink="/bootstrap" routerLinkActive="activa">Teste</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <router-outlet></router-outlet>
+</main>
+<footer></footer>

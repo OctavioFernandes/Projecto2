@@ -1,28 +1,20 @@
 <header>
-    <nav>
-        <!-- <div class="top_menu">
-            <div><a routerLink="/" routerLinkActive="activa">Homem</a></div>
-            <div>|</div>
-            <div><a routerLink="/" routerLinkActive="activa">Mulher</a></div>
-            <div><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }"><img src="\assets\Imagens\logo.png" alt="Logo image"></a></div>
-            <div><a routerLink="/" routerLinkActive="activa">Criança</a></div>
-            <div>|</div>
-            <div><a routerLink="/" routerLinkActive="activa">Acessórios</a></div>
-        </div> -->
+    <nav class="navbar">
+        <nav class="navbar-menu">
+            <a routerLink="/" routerLinkActive="activa">Homem</a>
+            <a routerLink="/" routerLinkActive="activa">Mulher</a>
 
-        <ul class="top_menu">
+            <img src="\assets\Imagens\logo.png" alt="Logo image" routerLink="" routerLinkActive="activa"
+                [routerLinkActiveOptions]="{ exact : true }">
 
-            
-            <li><a routerLink="/" routerLinkActive="activa">Homem</a></li>
-            <li><a routerLink="/" routerLinkActive="activa">Mulher</a></li>
+            <a routerLink="/" routerLinkActive="activa">Criança</a>
+            <a routerLink="/" routerLinkActive="activa">Acessórios</a>
 
-
-            <li><a routerLink="" routerLinkActive="activa" [routerLinkActiveOptions]="{ exact : true }"><img src="\assets\Imagens\logo.png" alt="Logo image"></a></li>
-
-            <li><a routerLink="/" routerLinkActive="activa">Criança</a></li>
-            <li><a routerLink="/" routerLinkActive="activa">Acessórios</a></li>
-
-        </ul>
+            <div class="navbar-icons">
+                <a href="">a</a>
+                <a href="">b</a>
+            </div>
+        </nav>
     </nav>
 </header>
 

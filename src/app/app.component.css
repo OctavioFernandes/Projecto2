@@ -1,32 +1,24 @@
-.top_menu {
-    margin: 0;
-    padding: 0;
+.navbar {
+    top: 0;
+    left: 0;
+    width: 100%;
 }
 
-/* .top_menu a{
+.navbar-menu {
     display: flex;
-    align-items: center;
     justify-content: center;
-    padding: 10px 20px;
-    text-decoration: none;
-} */
-
-
-
-.top_menu li {
-    /* display: inline; */
-}
-
-.top_menu li {
-    display: inline;
-    /* flex-direction: row;
     align-items: center;
-    justify-content: center; */
-    padding: 10px 20px;
-    text-decoration: none;
+    gap: 5px;
 }
 
-.top_menu li a img{
-    width: 75px;
+.navbar-menu img {
+    cursor: pointer;
+    height: 70px;
 }
 
+.navbar-icons {
+        position: absolute;
+        right: 10px;
+        display: flex;
+        gap: 2.5px;        
+}

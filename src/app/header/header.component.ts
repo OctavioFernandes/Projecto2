@@ -99,9 +99,9 @@ export class HeaderComponent implements OnInit {
 
           this.statusMsg = "Utilizador válido";
           this.loged = true;
-          this.formLogin.reset()
           this.router.navigate([""])
-          setTimeout(() => this.loginPopUp = false, 1000);          
+          setTimeout(() => this.loginPopUp = false, 1000);
+          this.formLogin.reset()          
 
         } else {
           this.statusMsg = "Utilizador inexistente!";
@@ -115,9 +115,7 @@ export class HeaderComponent implements OnInit {
     else {
       this.statusMsg = "Os dois campos são de preenchimento obrigatório!";
     }
-
     })   
-
   }
 
   logout() {

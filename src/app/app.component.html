@@ -1,78 +1,12 @@
 <header>
-    <nav class="navbar">
-        <nav class="navbar-menu">
-            <div class="dropdown">
-                <div>Homem</div>
-                <div class="dropdown-content">
-                    <div>Casacos</div>
-                    <div>Camisas</div>
-                    <div>Calças</div>
-                    <div>Sweatshirts</div>
-                    <div>Polos</div>
-                    <div>Sapatos</div>
-                    <div>Todos</div>
-                </div>
-            </div>
-
-            <div>|</div>
-
-            <div class="dropdown">
-                <div>Mulher</div>
-                <div class="dropdown-content">
-                    <div>Vestidos</div>
-                    <div>Blusões</div>
-                    <div>Coletes</div>
-                    <div>Jeans</div>
-                    <div>Saias</div>
-                    <div>Calções</div>
-                    <div>Lingerie</div>
-                    <div>Sapatos</div>
-                    <div>Malas</div>
-                    <div>Todos</div>
-                </div>
-            </div>
-
-            <img src="\assets\Imagens\logo.png" alt="Logo image" routerLink="" routerLinkActive="activa"
-                [routerLinkActiveOptions]="{ exact : true }">
-
-            <div class="dropdown">
-                <div>Criança</div>
-                <div class="dropdown-content">
-                    <div>Menina | 6-14 Anos</div>
-                    <div>Menino | 6-14 Anos</div>
-                    <div>Bebé Menina | 3 Meses - 5 Anos</div>
-                    <div>Bebé Menino | 3 Meses - 5 Anos</div>
-                    <div>Mini | 0-12 Meses</div>
-                </div>
-            </div>
-
-            <div>|</div>
-
-            <div class="dropdown">
-                <div>Acessórios</div>
-                <div class="dropdown-content">
-                    <div>Malas</div>
-                    <div>Pulseiras</div>
-                    <div>Anéis</div>
-                </div>
-            </div>
-
-            <div class="navbar-icons">
-                <!-- loged -->
-                <div><i class="fa-regular fa-clipboard fa-lg"></i></div>
-                <div><i class="fa-regular fa-user fa-lg"></i></div>
-                <div><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></div>
-                <!-- no loged -->
-                <div><i class="fa-solid fa-user-plus fa-lg"></i></div>
-                <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
-            </div>
-        </nav>
-    </nav>
-    <div class="dropdown-background"></div>
+    <app-header></app-header>
+    <!-- <div class="dropdown-background"></div> -->
 </header>
 
 
 <main>
     <router-outlet></router-outlet>
 </main>
+
+
 <footer></footer>

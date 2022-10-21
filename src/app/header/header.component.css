@@ -1,0 +1,197 @@
+/* navbar */
+
+.navbar {
+    top: 0;
+    left: 0;
+    width: 100%;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 110%;
+    color: grey;
+    margin-bottom: 40px;
+    /* height: 260px; */
+}
+
+.navbar-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding-top: 15px;
+}
+
+.navbar-menu div {
+    cursor: pointer;
+}
+
+.navbar-menu img {
+    cursor: pointer;
+    height: 72px;
+    padding: 0 10px;
+    z-index: 4;
+}
+
+.navbar-icons {
+    position: absolute;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* dropdown */
+
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    padding-top: 5px;
+    display: none;
+    position: absolute;
+    width: 130px;
+    /* width: 1000px; */
+    overflow: auto;
+    font-size: small;
+    cursor: pointer;
+    background: white;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content div {
+    padding: 2px 1px;
+}
+
+/* Testes */
+
+.dropdown-background{
+    display: none;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    height: 230px;
+    /* width: 100%; */
+    overflow: auto;
+    border-bottom:3px solid grey;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.dropdown:hover .dropdown-background{
+    display: block;
+}
+
+.dropdown:hover .navbar {
+    height: 260px;
+    /* background-color: black; */
+}
+
+/* Login Popup */
+
+.login-popup {
+    display: block;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+}
+
+.login-box {
+    position: relative;
+    top: 100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 260px;
+    background-color: white;
+    z-index: 3;
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.login-box p:first-child {
+    font-weight: bold;
+    font-size: 150%;
+    margin-top: 0;
+}
+
+.login-box p input {
+    width: 300px;
+    height: 25px;
+}
+
+.validate-box {
+    cursor: pointer;
+    float: right;
+    color: white;
+    margin-top: 20px;
+    margin-right: 10px;
+    background-color: #0d6efd;
+    padding: 10px;
+    width: 100px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.validate-box:active {
+    margin-top: 25px;
+    margin-right: 5px;
+
+}
+
+.btFechaTela {
+    position: absolute;
+    right: -15px;
+    top: -15px;
+    background-color: white;
+    border: 3px solid #999;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    text-align: center;
+    line-height: 20px;
+    font-weight: bold;
+    box-shadow: 3px 3px 5px #000;
+    cursor: pointer;
+    user-select: none;
+    z-index: 4;
+}
+
+.btFechaTela:hover {
+    background-color: #999;
+    color: white;
+    box-shadow: #000;
+}
+
+.btFechaTela:active {
+    box-shadow: none;
+    right: -17px;
+    top: -17px;
+}
+
+#login-msg {
+    font-size: small;
+}
+
+.validate-box input {
+    text-decoration: none;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+
+
+
+
+
+

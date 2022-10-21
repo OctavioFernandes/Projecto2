@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Route, Router, RouterLink } from '@angular/router';
 import { User } from '../shared/user';
 import { LoginserviceService } from './loginservice.service';
 
@@ -12,6 +13,8 @@ export class HeaderComponent implements OnInit {
 
   loginPopUp: boolean = false;
 
+  waitingServer!: boolean;
+
   loged: boolean = true;
 
   formLogin!: FormGroup;
@@ -23,7 +26,7 @@ export class HeaderComponent implements OnInit {
   user!: User;
 
 
-  constructor(private servLogin: LoginserviceService) { }
+  constructor(private servLogin: LoginserviceService, private router : Router) { }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
@@ -33,11 +36,7 @@ export class HeaderComponent implements OnInit {
   }
 
   loginPopUpLoginShow() {
-    if (this.loginPopUp === true) {
-      this.loginPopUp = false;
-    } else {
-      this.loginPopUp = true
-    }
+    this.loginPopUp = !this.loginPopUp;
   }
 
   validEmail(email: string) {
@@ -63,50 +62,41 @@ export class HeaderComponent implements OnInit {
 
   validateUser(email: string, password: string) {
 
-    this.servLogin.userValid(email, password)
-      .subscribe(result => {
+    this.servLogin.userValid(email, password )
+    .subscribe(result => {
 
-        this.user = result;
+      this.user = result;
 
-        // console.log(this.user)
-        console.log(this.user)
-        console.log(Array.isArray(this.user))
-
-        if (Array.isArray(this.user) && !this.user.length) {
-          console.log("Invalido")
-        } else {          
-          console.log("valido")          
-        }
-
-
-      })
-
-
-
-
-    // if (response !== undefined) {
-    //   this.userValid = true;
-    // } else {
-    //   this.userValid = false
-    // }
-
-
-    //octaviomgfernandes@gmail.com
-    // console.log(this.userValid)
-    return this.userValid;
+      if (Array.isArray(this.user) && !this.user.length) {
+        this.userValid=false;
+      } else {          
+        this.userValid=true;  
+      }
+    })
   }
 
   validateLogin() {
 
+    this.validateUser(this.formLogin.value.email, this.formLogin.value.password)
+
+
+
+    //octaviomgfernandes@gmail.com
+
     if (this.formLogin.valid) {
+
+      
+      setTimeout(() => this.waitingServer=true, 2000);
 
       if (this.validEmail(this.formLogin.value.email)) {
 
-        if (this.validateUser(this.formLogin.value.email, this.formLogin.value.password)) {
+        if (this.userValid) {
 
           this.statusMsg = "Utilizador válido";
           this.loged = true;
-          setTimeout(() => this.loginPopUp = false, 2000);
+          this.formLogin.reset()
+          this.router.navigate([""])
+          setTimeout(() => this.loginPopUp = false, 1000);          
 
         } else {
           this.statusMsg = "Utilizador inexistente!";

@@ -59,6 +59,7 @@ export class HeaderComponent implements OnInit {
     }
     return valid;
   }
+  
 
   validateUser(email: string, password: string) {
 
@@ -77,16 +78,20 @@ export class HeaderComponent implements OnInit {
 
   validateLogin() {
 
-    this.validateUser(this.formLogin.value.email, this.formLogin.value.password)
+    // this.validateUser(this.formLogin.value.email, this.formLogin.value.password)
 
+    this.servLogin.userValid(this.formLogin.value.email, this.formLogin.value.password)
+    .subscribe(result => {
 
+      this.user = result;
 
-    //octaviomgfernandes@gmail.com
-
-    if (this.formLogin.valid) {
-
+      if (Array.isArray(this.user) && !this.user.length) {
+        this.userValid=false;
+      } else {          
+        this.userValid=true;  
+      }
       
-      setTimeout(() => this.waitingServer=true, 2000);
+    if (this.formLogin.valid) {
 
       if (this.validEmail(this.formLogin.value.email)) {
 
@@ -110,6 +115,9 @@ export class HeaderComponent implements OnInit {
     else {
       this.statusMsg = "Os dois campos são de preenchimento obrigatório!";
     }
+
+    })   
+
   }
 
   logout() {

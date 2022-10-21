@@ -27,6 +27,7 @@
     cursor: pointer;
     height: 72px;
     padding: 0 10px;
+    z-index: 4;
 }
 
 .navbar-icons {
@@ -49,15 +50,13 @@
     padding-top: 5px;
     display: none;
     position: absolute;
-    width: 200px;
+    width: 130px;
+    /* width: 1000px; */
     overflow: auto;
     font-size: small;
     cursor: pointer;
-}
-
-.dropdown:hover .navbar {
-    height: 260px;
-    /* background-color: black; */
+    background: white;
+    z-index: 1;
 }
 
 .dropdown:hover .dropdown-content {
@@ -67,3 +66,34 @@
 .dropdown-content div {
     padding: 2px 1px;
 }
+
+/* Testes */
+
+.dropdown-background{
+    display: none;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    height: 230px;
+    /* width: 100%; */
+    overflow: auto;
+    border-bottom:3px solid grey;
+    opacity: 0.5;
+    z-index: 2;
+}
+
+.dropdown:hover .dropdown-background{
+    display: block;
+}
+
+.dropdown:hover .navbar {
+    height: 260px;
+    /* background-color: black; */
+}
+
+
+
+
+
+
+

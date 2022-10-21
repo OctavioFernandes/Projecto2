@@ -1,24 +1,69 @@
+/* navbar */
+
 .navbar {
     top: 0;
     left: 0;
     width: 100%;
+    font-family: inherit;
+    font-weight: 400;
+    font-size: 110%;
+    color: grey;
+    /* height: 260px; */
 }
 
 .navbar-menu {
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    padding-top: 15px;
+}
+
+.navbar-menu div {
+    cursor: pointer;
 }
 
 .navbar-menu img {
     cursor: pointer;
-    height: 70px;
+    height: 72px;
+    padding: 0 10px;
 }
 
 .navbar-icons {
-        position: absolute;
-        right: 10px;
-        display: flex;
-        gap: 2.5px;        
+    position: absolute;
+    right: 10px;
+    display: flex;
+    gap: 10px;
+    cursor: pointer;
+}
+
+/* dropdown */
+
+
+.dropdown {
+    display: inline-block;
+    position: relative;
+}
+
+.dropdown-content {
+    padding-top: 5px;
+    display: none;
+    position: absolute;
+    width: 200px;
+    overflow: auto;
+    font-size: small;
+    cursor: pointer;
+}
+
+.dropdown:hover .navbar {
+    height: 260px;
+    /* background-color: black; */
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown-content div {
+    padding: 2px 1px;
 }

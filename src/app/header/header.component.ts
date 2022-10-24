@@ -21,9 +21,13 @@ export class HeaderComponent implements OnInit {
 
   userValid!: boolean;
 
-  user!: User;
+  // user!: User;
 
-  userTest: User[] =[];
+  user: User[] = [];
+
+  // user!: User;
+
+  // userTest: User[] =[];
 
 
   constructor(protected servLogin: LoginserviceService, private router: Router) { }
@@ -62,21 +66,10 @@ export class HeaderComponent implements OnInit {
 
 
   validateLogin() {
-
-    
-
     this.servLogin.getUser(this.formLogin.value.email, this.formLogin.value.password)
       .subscribe(result => {
 
-        this.userTest = [result]
-
-        this.user === result;
-
-        console.log("Result:");
-        console.log(result);
-
-        console.log("teste:");
-        console.log(result.id);
+        this.user = result;
 
         if (this.formLogin.valid) {
 
@@ -85,7 +78,6 @@ export class HeaderComponent implements OnInit {
             if (Array.isArray(this.user) && this.user.length) {
 
               this.statusMsg = "Utilizador válido";
-              // this.loged = true;
               this.servLogin.loged = true;
               this.router.navigateByUrl("");
               setTimeout(() => this.loginPopUp = false, 1000);

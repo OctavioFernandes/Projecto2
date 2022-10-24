@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CreateprofileComponent } from './createprofile/createprofile.component';
 import { LogedguardService } from './header/logedguard.service';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'home', pathMatch: 'full', redirectTo: '' },
   { path: 'wishlist', component: WishlistComponent, canActivate:[LogedguardService]},
   { path: 'profile', component: ProfileComponent, canActivate:[LogedguardService]},
+  { path: 'createprofile', component: CreateprofileComponent},
 
 
   { path: '**', component: PagenotfoundComponent }

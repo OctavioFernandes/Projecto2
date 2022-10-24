@@ -9,13 +9,13 @@ import {FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@a
 })
 export class CreateprofileComponent implements OnInit {
 
-  profileForm! : FormGroup;
-
+  formProfile! : FormGroup;
+  
   constructor() { }
 
   ngOnInit(): void {
 
-    this.profileForm = new FormGroup({
+    this.formProfile = new FormGroup({
       nome : new FormControl('', Validators.required),
       email : new FormControl('', [Validators.required]),
       password : new FormControl('', [Validators.required]),      
@@ -27,8 +27,8 @@ export class CreateprofileComponent implements OnInit {
   }
 
   insertUser(){
-    console.log(this.profileForm.valid)
-    console.log(this.profileForm.value)
+    console.log(this.formProfile.valid)
+    console.log(this.formProfile.value)
   }
 
 }

@@ -1,4 +1,4 @@
-<form class="profileForm" [formGroup]="profileForm" (ngSubmit)="insertUser()">
+<form class="profileForm" [formGroup]="formProfile" (ngSubmit)="insertUser()">
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Nome Completo</mat-label>
@@ -7,22 +7,24 @@
         <mat-error *ngIf="formGroup.get('nome')?.hasError('required')">
             Please enter a valid name
         </mat-error> -->
-
-        <!-- <mat-error *ngIf="formGroup.controls['nome'].errors?.['required']">
+<!-- 
+        <mat-error *ngIf="formGroup.controls['nome'].errors?.['required']">
             Please enter a valid name
         </mat-error> -->
 
-        <mat-error *ngIf="formGroup.get('required')">
+        <!-- <mat-error *ngIf="formGroup.get('required')">
             Please enter a valid name
-        </mat-error>
+        </mat-error> -->
 
         <!-- formGroup.get('nome')?.invalid -->
 
-        <!-- <mat-error *ngIf="nome.hasError('required')">
+        <!-- <mat-error *ngIf="nome.errors?.['required']">
             Please enter a valid name
         </mat-error> -->
 
-    </mat-form-field>
+        
+
+    </mat-form-field>    
 
 
 
@@ -50,8 +52,8 @@
 
     <mat-form-field class="example-full-width" appearance="fill">
         <mat-label>Código-postal</mat-label>
-        <input matInput #giroCode maxlength="7" placeholder="Ex. 3789-418" formControlName="codigoPostal">
-        <mat-hint align="end">{{giroCode.value.length}} / 7</mat-hint>
+        <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
+        <mat-hint align="end">{{ZipCode.value.length}} / 8</mat-hint>
     </mat-form-field>
 
 
@@ -64,3 +66,4 @@
         <button type="submit" mat-raised-button color="warn">Registar!</button>
     </div>
 </form>
+

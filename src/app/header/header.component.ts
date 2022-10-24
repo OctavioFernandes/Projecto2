@@ -70,13 +70,13 @@ export class HeaderComponent implements OnInit {
 
         this.userTest = [result]
 
-        this.user = result;
+        this.user === result;
 
         console.log("Result:");
-        console.log(result.email);
+        console.log(result);
 
         console.log("teste:");
-        console.log(this.userTest[0].nome);
+        console.log(result.id);
 
         if (this.formLogin.valid) {
 

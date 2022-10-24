@@ -9,6 +9,7 @@
     font-size: 110%;
     color: grey;
     margin-bottom: 40px;
+    /* z-index: 3; */
     /* height: 260px; */
 }
 
@@ -22,6 +23,7 @@
 
 .navbar-menu div {
     cursor: pointer;
+    z-index: 3;
 }
 
 .navbar-menu img {
@@ -45,6 +47,7 @@
 .dropdown {
     display: inline-block;
     position: relative;
+    z-index: 3;
 }
 
 .dropdown-content {
@@ -57,7 +60,7 @@
     font-size: small;
     cursor: pointer;
     background: white;
-    z-index: 1;
+    z-index: 4;
 }
 
 .dropdown:hover .dropdown-content {
@@ -69,6 +72,25 @@
 }
 
 /* Testes */
+
+
+.dropdown:hover .teste{
+    display: block;
+}
+
+.teste{
+    display: none;
+    height: 260px;
+    background-color: white;
+    position: fixed;
+    top: 20px;;
+    left: 0;
+    right: 0;
+    border-bottom: 4px solid grey;
+    /* bottom: 0; */
+    z-index: -100;
+}
+
 
 .dropdown-background{
     display: none;
@@ -91,6 +113,7 @@
     height: 260px;
     /* background-color: black; */
 }
+
 
 /* Login Popup */
 
@@ -188,6 +211,7 @@
     border: none;
     color: white;
 }
+
 
 
 

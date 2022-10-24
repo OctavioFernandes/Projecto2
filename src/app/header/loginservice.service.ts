@@ -14,7 +14,7 @@ export class LoginserviceService {
 
   constructor(private http : HttpClient) { }
 
-  userValid(email:string , password: string){
+  getUser(email:string , password: string){
     //http://localhost:3000/users/?email=octaviomgfernandes@gmail.com&password=1234
     return this.http.get<User>(`${this.urlAPI}/users/?email=${email}&password=${password}`)
   }

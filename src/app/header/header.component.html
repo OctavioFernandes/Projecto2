@@ -10,8 +10,12 @@
                 <div>Polos</div>
                 <div>Sapatos</div>
                 <div>Todos</div>
+                <!-- <div class="teste"></div> -->
             </div>
+            <!-- <div class="teste"></div> -->
         </div>
+        
+        <div class="teste"></div>
 
         <div>|</div>
 
@@ -58,12 +62,13 @@
 
         <div class="navbar-icons">
             <!-- loged -->
-            <div><i class="fa-regular fa-clipboard fa-lg"></i></div>
-            <div><i class="fa-regular fa-user fa-lg" (click)="loginPopUpLoginShow()"></i></div>
-            <div><i class="fa-solid fa-arrow-right-from-bracket fa-lg"></i></div>
+            <div *ngIf="servLogin.loged">Bem vindo(a) {{user.nome}}</div>
+            <div *ngIf="servLogin.loged"><i class="fa-regular fa-clipboard fa-lg"></i></div>
+            <div *ngIf="servLogin.loged"><i class="fa-regular fa-user fa-lg"></i></div>
+            <div *ngIf="servLogin.loged"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" (click)="logout()"></i></div>
             <!-- no loged -->
-            <div><i class="fa-solid fa-user-plus fa-lg"></i></div>
-            <div><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+            <div *ngIf="!servLogin.loged"><i class="fa-solid fa-user-plus fa-lg"></i></div>
+            <div *ngIf="!servLogin.loged" (click)="loginPopUpLoginShow()"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
         </div>
     </nav>
 </nav>

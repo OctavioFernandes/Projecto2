@@ -5,5 +5,6 @@ export type User={
     password: string,
     morada: string,
     codigoPostal: string,
-    pais: string
+    pais: string,
+    wishlist: number
 }

@@ -13,9 +13,7 @@ export class HeaderComponent implements OnInit {
 
   loginPopUp: boolean = false;
 
-  waitingServer!: boolean;
-
-  loged: boolean = true;
+  // loged: boolean = true;
 
   formLogin!: FormGroup;
 
@@ -26,7 +24,7 @@ export class HeaderComponent implements OnInit {
   user!: User;
 
 
-  constructor(private servLogin: LoginserviceService, private router : Router) { }
+  constructor(protected servLogin: LoginserviceService, private router: Router) { }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
@@ -59,67 +57,47 @@ export class HeaderComponent implements OnInit {
     }
     return valid;
   }
-  
 
-  validateUser(email: string, password: string) {
-
-    this.servLogin.userValid(email, password )
-    .subscribe(result => {
-
-      this.user = result;
-
-      if (Array.isArray(this.user) && !this.user.length) {
-        this.userValid=false;
-      } else {          
-        this.userValid=true;  
-      }
-    })
-  }
 
   validateLogin() {
 
-    // this.validateUser(this.formLogin.value.email, this.formLogin.value.password)
+    
 
-    this.servLogin.userValid(this.formLogin.value.email, this.formLogin.value.password)
-    .subscribe(result => {
+    this.servLogin.getUser(this.formLogin.value.email, this.formLogin.value.password)
+      .subscribe(result => {
 
-      this.user = result;
+        this.user = result;
 
-      if (Array.isArray(this.user) && !this.user.length) {
-        this.userValid=false;
-      } else {          
-        this.userValid=true;  
-      }
-      
-    if (this.formLogin.valid) {
+        if (this.formLogin.valid) {
 
-      if (this.validEmail(this.formLogin.value.email)) {
+          if (this.validEmail(this.formLogin.value.email)) {
 
-        if (this.userValid) {
+            if (Array.isArray(this.user) && this.user.length) {
 
-          this.statusMsg = "Utilizador válido";
-          this.loged = true;
-          this.router.navigate([""])
-          setTimeout(() => this.loginPopUp = false, 1000);
-          this.formLogin.reset()          
+              this.statusMsg = "Utilizador válido";
+              // this.loged = true;
+              this.servLogin.loged = true;
+              this.router.navigateByUrl("");
+              setTimeout(() => this.loginPopUp = false, 1000);
+              setTimeout(() => this.statusMsg = "", 1000);
+              this.formLogin.reset();
 
-        } else {
-          this.statusMsg = "Utilizador inexistente!";
+            } else {
+              this.statusMsg = "Utilizador inexistente!";
+            }
+          } else {
+            this.statusMsg = "O email tem um formato incorreto!";
+          }
         }
-
-      } else {
-        this.statusMsg = "O email tem um formato incorreto!";
-      }
-
-    }
-    else {
-      this.statusMsg = "Os dois campos são de preenchimento obrigatório!";
-    }
-    })   
+        else {
+          this.statusMsg = "Os dois campos são de preenchimento obrigatório!";
+        }
+      })
   }
 
   logout() {
-    this.loged = false;
+    this.servLogin.loged = false;
+    this.router.navigateByUrl("");
   }
 
 

@@ -23,6 +23,8 @@ export class HeaderComponent implements OnInit {
 
   user!: User;
 
+  userTest: User[] =[];
+
 
   constructor(protected servLogin: LoginserviceService, private router: Router) { }
 
@@ -66,7 +68,15 @@ export class HeaderComponent implements OnInit {
     this.servLogin.getUser(this.formLogin.value.email, this.formLogin.value.password)
       .subscribe(result => {
 
+        this.userTest = [result]
+
         this.user = result;
+
+        console.log("Result:");
+        console.log(result.email);
+
+        console.log("teste:");
+        console.log(this.userTest[0].nome);
 
         if (this.formLogin.valid) {
 

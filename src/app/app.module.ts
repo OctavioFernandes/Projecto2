@@ -10,13 +10,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HeaderComponent } from './header/header.component';
+import { WishlistComponent } from './wishlist/wishlist.component';
+import { ProfileComponent } from './profile/profile.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PagenotfoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    WishlistComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,

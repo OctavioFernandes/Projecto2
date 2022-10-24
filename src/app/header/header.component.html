@@ -63,12 +63,15 @@
         <div class="navbar-icons">
             <!-- loged -->
             <div *ngIf="servLogin.loged">Bem vindo(a) {{user.nome}}</div>
-            <div *ngIf="servLogin.loged"><i class="fa-regular fa-clipboard fa-lg"></i></div>
-            <div *ngIf="servLogin.loged"><i class="fa-regular fa-user fa-lg"></i></div>
-            <div *ngIf="servLogin.loged"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" (click)="logout()"></i></div>
+
+            <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i class="fa-regular fa-clipboard fa-lg"></i></div>
+
+            <div div routerLink="profile" routerLinkActive="activa" *ngIf="servLogin.loged" title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
+
+            <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" (click)="logout()"></i></div>
             <!-- no loged -->
-            <div *ngIf="!servLogin.loged"><i class="fa-solid fa-user-plus fa-lg"></i></div>
-            <div *ngIf="!servLogin.loged" (click)="loginPopUpLoginShow()"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+            <div *ngIf="!servLogin.loged" title="Registar"><i class="fa-solid fa-user-plus fa-lg"></i></div>
+            <div *ngIf="!servLogin.loged" title="Iniciar Sessão" (click)="loginPopUpLoginShow()"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
         </div>
     </nav>
 </nav>

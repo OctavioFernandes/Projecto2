@@ -75,7 +75,7 @@
 
             <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>            
 
-            <button *ngIf="formProfile.valid && !insertMode" mat-raised-button color="warn" (click)="insertUser()">Alterar informação</button>
+            <button *ngIf="formProfile.valid && !insertMode && editUserData" mat-raised-button color="warn" (click)="insertUser()">Alterar informação</button>
 
             <button *ngIf="!insertMode && !editUserData" mat-raised-button color="warn" (click)="activeEditMode()">Editar dados!</button>
 

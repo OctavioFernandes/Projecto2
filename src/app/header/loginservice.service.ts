@@ -18,7 +18,6 @@ export class LoginserviceService {
   constructor(private http : HttpClient) { }
 
   getUser(email:string , password: string){
-    console.log(`${this.urlAPI}/users/?email=${email}&password=${password}`);
     return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}&password=${encodeURIComponent(password)}`)
   }
 

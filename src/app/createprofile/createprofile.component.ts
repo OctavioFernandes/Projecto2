@@ -98,14 +98,12 @@ export class CreateprofileComponent implements OnInit {
 
         this.servLogin.insertUser(this.formProfile.value)
           .subscribe(response => {
-            console.log(response)
             this.validateUserPopUp = true;
           });
 
       } else {
         this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
         .subscribe(response => {
-          console.log(response)
           this.validateUserPopUp = true;
         });
         // Atualizar dados

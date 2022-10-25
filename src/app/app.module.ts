@@ -15,9 +15,8 @@ import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HeaderComponent } from './header/header.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { ProfileComponent } from './profile/profile.component';
-import { UserlogedmanagerComponent } from './userlogedmanager/userlogedmanager.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
-// import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -28,9 +27,8 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
     HeaderComponent,
     WishlistComponent,
     ProfileComponent,
-    UserlogedmanagerComponent,
     CreateprofileComponent,
-    // DialogAnimationsExampleDialogComponent
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

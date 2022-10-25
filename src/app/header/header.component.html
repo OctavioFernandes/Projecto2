@@ -66,7 +66,7 @@
 
             <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i class="fa-regular fa-clipboard fa-lg"></i></div>
 
-            <div div routerLink="createprofile" routerLinkActive="activa" *ngIf="servLogin.loged" title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
+            <div div routerLink="createprofile" routerLinkActive="router-link-active" *ngIf="servLogin.loged" title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
 
             <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" (click)="logout()"></i></div>
             <!-- no loged -->

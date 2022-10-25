@@ -1,1 +1,2 @@
-<app-header></app-header>
+<app-header (userloged)="userLoged($event)"></app-header>
+<app-createprofile [hidden]="true" [userloged]="userLogedIn"></app-createprofile>

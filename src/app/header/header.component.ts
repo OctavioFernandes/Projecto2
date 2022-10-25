@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router, RouterLink } from '@angular/router';
 import { User } from '../shared/user';
@@ -12,22 +12,12 @@ import { LoginserviceService } from './loginservice.service';
 export class HeaderComponent implements OnInit {
 
   loginPopUp: boolean = false;
-
-  // loged: boolean = true;
-
   formLogin!: FormGroup;
-
   statusMsg!: string;
-
   userValid!: boolean;
-
-  // user!: User;
-
   user: User[] = [];
 
-  // user!: User;
-
-  // userTest: User[] =[];
+  @Output() userloged : EventEmitter<User> = new EventEmitter();
 
 
   constructor(protected servLogin: LoginserviceService, private router: Router) { }
@@ -75,7 +65,9 @@ export class HeaderComponent implements OnInit {
 
           if (this.validEmail(this.formLogin.value.email)) {
 
-            if (Array.isArray(this.user) && this.user.length ) {
+            if (Array.isArray(this.user) && this.user.length && this.user[0].active) {
+
+              this.userloged.emit(this.user[0])
 
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;

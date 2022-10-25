@@ -5,9 +5,6 @@
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome Completo</mat-label>
             <input type="text" matInput formControlName="nome">
-            <mat-error *ngIf="formProfile.controls['nome'].errors?.['required']">
-                Please enter a valid name
-            </mat-error>
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -48,8 +45,30 @@
         <mat-hint *ngIf="formProfile.invalid">*Todos os campos são de preenchimento obrigatório </mat-hint>
 
         <div class="example-button-row">
-            <button *ngIf="formProfile.valid" mat-raised-button color="warn">Registar!</button>
+
+            <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>
+
+            <button *ngIf="formProfile.valid && !insertMode" mat-raised-button color="warn">Atualizar dados!</button>
+
             <button *ngIf="formProfile.invalid" mat-raised-button disabled>Registar!</button>
+
+
+
         </div>
+
     </form>
 </div>
+
+<div *ngIf="validateUserPopUp" class="user-registed-popup">
+    <div class="user-registed-box">
+        <div>Utilizador registado com sucesso!</div>
+        <button mat-raised-button color="primary" (click)="closeUserPopUp()">Ok!</button>
+    </div>
+</div>
+
+<pre>
+    {{formProfile.value|json}}
+    {{"isertmode: "+insertMode}}
+    {{"id: "+idToPut}}
+    {{"userlogin: "+userloged}}
+</pre>

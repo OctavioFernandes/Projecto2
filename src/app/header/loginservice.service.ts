@@ -23,6 +23,10 @@ export class LoginserviceService {
     return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}`)
   }
 
+  insertUser(user : User) {
+    return this.http.post<User>(`${this.urlAPI}/users`, user);
+  }
+
 //octaviomgfernandes@gmail.com
 
 }

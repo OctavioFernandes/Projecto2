@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ReactiveFormsModule }   from '@angular/forms';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { UserlogedmanagerComponent } from './userlogedmanager/userlogedmanager.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
+// import { DialogAnimationsExampleDialogComponent } from './dialog-animations-example-dialog/dialog-animations-example-dialog.component';
 
 
 @NgModule({
@@ -27,7 +29,8 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
     WishlistComponent,
     ProfileComponent,
     UserlogedmanagerComponent,
-    CreateprofileComponent
+    CreateprofileComponent,
+    // DialogAnimationsExampleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,8 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
     FormsModule,
     HttpClientModule,
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]

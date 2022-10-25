@@ -4,8 +4,15 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome Completo</mat-label>
-            <input type="text" matInput formControlName="nome">
+            <input *ngIf="insertMode" matInput formControlName="nome">
+            
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.nome}}">
+
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="nome">
+
         </mat-form-field>
+
+        
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
@@ -27,7 +34,7 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Morada</mat-label>
-            <input type="password" matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
+            <input matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -46,9 +53,11 @@
 
         <div class="example-button-row">
 
-            <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>
+            <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>            
 
             <button *ngIf="formProfile.valid && !insertMode" mat-raised-button color="warn">Atualizar dados!</button>
+
+            <button *ngIf="!insertMode && !editUserData" mat-raised-button color="warn" (click)="activeEditMode()">Editar dados!</button>
 
             <button *ngIf="formProfile.invalid" mat-raised-button disabled>Registar!</button>
 
@@ -68,7 +77,4 @@
 
 <pre>
     {{formProfile.value|json}}
-    {{"isertmode: "+insertMode}}
-    {{"id: "+idToPut}}
-    {{"userlogin: "+userloged}}
 </pre>

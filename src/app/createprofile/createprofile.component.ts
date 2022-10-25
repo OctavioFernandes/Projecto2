@@ -15,37 +15,36 @@ export class CreateprofileComponent implements OnInit {
 
   //octaviomgfernandes@gmail.com
 
-  @Input()
-  set userloged(registo: any) {
-    if (registo !== undefined) {
-      console.log("sou o perfil e recebi:");
-      // console.log(Array.isArray(registo));
-      console.log(registo.nome);
-      // console.log(this.formProfile.value)
-      this.formProfile.setValue({
-        nome: registo.nome,
-        email: registo.email,
-        password: registo.password,
-        morada: registo.morada,
-        codigoPostal: registo.codigoPostal,
-        pais: registo.pais,
-        wishlist: registo.wishlist,
-        active: registo.active
-      });
-      this.insertMode = false;
-      this.idToPut = registo.id;
-      console.log("corri input");
-      console.log(this.formProfile.value);
-      console.log(this.insertMode);
-    }
-  }
+  // @Input()
+  // set userloged(registo: any) {
+  //   if (registo !== undefined) {
+  //     console.log("sou o perfil e recebi:");
+  //     console.log(registo.nome);
+  //     this.formProfile.setValue({
+  //       nome: registo.nome,
+  //       email: registo.email,
+  //       password: registo.password,
+  //       morada: registo.morada,
+  //       codigoPostal: registo.codigoPostal,
+  //       pais: registo.pais,
+  //       wishlist: registo.wishlist,
+  //       active: registo.active
+  //     });
+  //     this.insertMode = false;
+  //     this.idToPut = registo.id;
+  //     console.log("corri input");
+  //     console.log(this.formProfile.value);
+  //     console.log(this.insertMode);
+  //   }
+  // }
 
   formProfile!: FormGroup;
   formMensage!: string;
-  user: User[] = [];
+  user!: User;
   validateUserPopUp: boolean = false;
   idToPut!: number;
   insertMode: boolean = true;
+  editUserData:boolean = false;
 
   email: string = "qqq@gmail.com"
 
@@ -71,9 +70,26 @@ export class CreateprofileComponent implements OnInit {
       active: new FormControl(false)
 
     });
-    
-    console.log(this.formProfile.value);
-    console.log(this.insertMode);
+
+    //octaviomgfernandes@gmail.com
+
+    if (this.servLogin.loged) {
+      this.formProfile.setValue({
+        nome: this.servLogin.user.nome,
+        email: this.servLogin.user.email,
+        password: this.servLogin.user.password,
+        morada: this.servLogin.user.morada,
+        codigoPostal: this.servLogin.user.codigoPostal,
+        pais: this.servLogin.user.pais,
+        wishlist: this.servLogin.user.wishlist,
+        active: this.servLogin.user.active
+      });
+
+      this.insertMode = false;
+
+      this.user =  this.servLogin.user;
+      
+    }
 
   }
 
@@ -103,6 +119,11 @@ export class CreateprofileComponent implements OnInit {
     this.formProfile.reset();
   }
 
+  activeEditMode(){
+    this.editUserData = !this.editUserData
+  }
+
+
   // Testes Validar não duplicar emails
   testeEmail(control: FormControl) {
     if (control.value != null && control.value.email === this.email) {
@@ -117,18 +138,18 @@ export class CreateprofileComponent implements OnInit {
     this.servLogin.getEmail(control.value.email)
       .subscribe(result => {
 
-        this.user = result
+        // this.user = result
 
-        if (control.value != null
-          && control.value.email === this.user[0].email) {
+        // if (control.value != null
+        //   && control.value.email === this.user[0].email) {
 
-          return { emailExistDb: true }
+        //   return { emailExistDb: true }
 
-        } else {
+        // } else {
 
-          return null
+        //   return null
 
-        }
+        // }
       })
   }
   // Testes Validar não duplicar emails

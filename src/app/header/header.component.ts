@@ -67,7 +67,8 @@ export class HeaderComponent implements OnInit {
 
             if (Array.isArray(this.user) && this.user.length && this.user[0].active) {
 
-              this.userloged.emit(this.user[0])
+              this.userloged.emit(this.user[0]);
+              this.servLogin.user=this.user[0];
 
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;

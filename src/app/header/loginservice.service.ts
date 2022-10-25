@@ -12,6 +12,8 @@ export class LoginserviceService {
   private urlAPI = "http://localhost:3000";
 
   loged : boolean = false;
+
+  user! : User;
   
   constructor(private http : HttpClient) { }
 

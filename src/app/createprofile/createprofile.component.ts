@@ -39,6 +39,7 @@ export class CreateprofileComponent implements OnInit {
   }
 
   insertUser(){
+    console.log("Tentou registar")
     if (this.formProfile.valid) {
       
     } else {
@@ -63,10 +64,15 @@ export class CreateprofileComponent implements OnInit {
 
       this.user=result
 
-      if (control.value != null) {
+      if (control.value != null 
+        && control.value.email === this.user[0].email) {
+
         return {emailExistDb:true}
+
       } else {
+
         return null
+        
       }
     })
   }

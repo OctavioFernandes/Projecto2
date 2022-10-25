@@ -75,7 +75,7 @@ export class HeaderComponent implements OnInit {
 
           if (this.validEmail(this.formLogin.value.email)) {
 
-            if (Array.isArray(this.user) && this.user.length) {
+            if (Array.isArray(this.user) && this.user.length ) {
 
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;

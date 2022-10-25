@@ -45,10 +45,11 @@
             <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais">
         </mat-form-field>
 
-        <mat-error *ngIf="formProfile.invalid">*Todos os campos são de preenchimento obrigatório </mat-error>
+        <mat-hint *ngIf="formProfile.invalid">*Todos os campos são de preenchimento obrigatório </mat-hint>
 
         <div class="example-button-row">
-            <button type="submit" mat-raised-button color="warn">Registar!</button>
+            <button *ngIf="formProfile.valid" mat-raised-button color="warn">Registar!</button>
+            <button *ngIf="formProfile.invalid" mat-raised-button disabled>Registar!</button>
         </div>
     </form>
 </div>

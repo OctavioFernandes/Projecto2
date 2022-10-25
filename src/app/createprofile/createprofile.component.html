@@ -5,7 +5,7 @@
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Nome Completo</mat-label>
             <input *ngIf="insertMode" matInput formControlName="nome">
-            
+
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.nome}}">
 
             <input *ngIf="!insertMode && editUserData" matInput formControlName="nome">
@@ -16,7 +16,10 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <input matInput formControlName="email">
+            <!-- <input matInput formControlName="email"> -->
+            <input *ngIf="insertMode" matInput formControlName="email">
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.email}}">
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="email">
 
             <mat-error *ngIf="formProfile.controls['email'].errors?.['email']">
                 Por favor insira um email válido
@@ -25,7 +28,11 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Senha</mat-label>
-            <input type="password" matInput formControlName="password">
+            <!-- <input type="password" matInput formControlName="password"> -->
+            <input *ngIf="insertMode" matInput formControlName="password">
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.password}}">
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="password">
+
             <mat-error *ngIf="formProfile.controls['password'].errors?.['pattern']">
                 A senha deve conter no mínimo 8 caracteres,
                 uma letra maiúscula, uma letra minúscula, um algarismo e um símbolo.
@@ -34,19 +41,32 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Morada</mat-label>
-            <input matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
+            <!-- <input matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada"> -->
+            <input *ngIf="insertMode" matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.morada}}">
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="morada">
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Código-postal</mat-label>
-            <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
-            <mat-hint align="end">{{ZipCode.value.length}} / 8</mat-hint>
+            <!-- <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal"> -->
+
+            <input *ngIf="insertMode" matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.codigoPostal}}">
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="codigoPostal">
+
+            <mat-error *ngIf="formProfile.controls['codigoPostal'].errors?.['minLength']">
+                O código postal deve conter pelo menos 8 caracteres. Ver exemplo.
+            </mat-error>
         </mat-form-field>
 
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>País</mat-label>
-            <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais">
+            <!-- <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais"> -->
+            <input *ngIf="insertMode" matInput placeholder="Ex. Portugal" formControlName="pais">
+            <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.pais}}">
+            <input *ngIf="!insertMode && editUserData" matInput formControlName="pais">
         </mat-form-field>
 
         <mat-hint *ngIf="formProfile.invalid">*Todos os campos são de preenchimento obrigatório </mat-hint>
@@ -55,13 +75,13 @@
 
             <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>            
 
-            <button *ngIf="formProfile.valid && !insertMode" mat-raised-button color="warn">Atualizar dados!</button>
+            <button *ngIf="formProfile.valid && !insertMode" mat-raised-button color="warn" (click)="insertUser()">Alterar informação</button>
 
             <button *ngIf="!insertMode && !editUserData" mat-raised-button color="warn" (click)="activeEditMode()">Editar dados!</button>
 
-            <button *ngIf="formProfile.invalid" mat-raised-button disabled>Registar!</button>
+            <button *ngIf="formProfile.invalid && insertMode" mat-raised-button disabled>Registar!</button>
 
-
+            <button *ngIf="formProfile.invalid && !insertMode" mat-raised-button disabled>Alterar informação!</button>
 
         </div>
 

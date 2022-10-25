@@ -61,7 +61,7 @@ export class CreateprofileComponent implements OnInit {
 
       morada: new FormControl('', [Validators.required]),
 
-      codigoPostal: new FormControl('', [Validators.required]),
+      codigoPostal: new FormControl('', [Validators.required, Validators.minLength(8)]),
 
       pais: new FormControl('', [Validators.required]),
 
@@ -84,11 +84,8 @@ export class CreateprofileComponent implements OnInit {
         wishlist: this.servLogin.user.wishlist,
         active: this.servLogin.user.active
       });
-
       this.insertMode = false;
-
-      this.user =  this.servLogin.user;
-      
+      this.user =  this.servLogin.user;      
     }
 
   }
@@ -106,6 +103,11 @@ export class CreateprofileComponent implements OnInit {
           });
 
       } else {
+        this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
+        .subscribe(response => {
+          console.log(response)
+          this.validateUserPopUp = true;
+        });
         // Atualizar dados
         // this.validateUserPopUp = true;        
       }

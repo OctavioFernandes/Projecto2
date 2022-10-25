@@ -18,7 +18,8 @@ export class LoginserviceService {
   constructor(private http : HttpClient) { }
 
   getUser(email:string , password: string){
-    return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}&password=${password}`)
+    console.log(`${this.urlAPI}/users/?email=${email}&password=${password}`);
+    return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}&password=${encodeURIComponent(password)}`)
   }
 
   getEmail(email:string){
@@ -27,6 +28,10 @@ export class LoginserviceService {
 
   insertUser(user : User) {
     return this.http.post<User>(`${this.urlAPI}/users`, user);
+  }
+
+  editUser(user : User, id : number) {
+    return this.http.put<User>(`${this.urlAPI}/users/${id}`, user);
   }
 
 //octaviomgfernandes@gmail.com

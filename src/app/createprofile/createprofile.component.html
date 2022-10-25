@@ -1,69 +1,54 @@
-<form class="profileForm" [formGroup]="formProfile" (ngSubmit)="insertUser()">
+<div class="form">
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Nome Completo</mat-label>
-        <input type="text" matInput formControlName="nome">
-<!-- 
-        <mat-error *ngIf="formGroup.get('nome')?.hasError('required')">
-            Please enter a valid name
-        </mat-error> -->
-<!-- 
-        <mat-error *ngIf="formGroup.controls['nome'].errors?.['required']">
-            Please enter a valid name
-        </mat-error> -->
+    <form class="profileForm" [formGroup]="formProfile" (ngSubmit)="insertUser()">
 
-        <!-- <mat-error *ngIf="formGroup.get('required')">
-            Please enter a valid name
-        </mat-error> -->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Nome Completo</mat-label>
+            <input type="text" matInput formControlName="nome">
+            <mat-error *ngIf="formProfile.controls['nome'].errors?.['required']">
+                Please enter a valid name
+            </mat-error>
+        </mat-form-field>
 
-        <!-- formGroup.get('nome')?.invalid -->
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email">
 
-        <!-- <mat-error *ngIf="nome.errors?.['required']">
-            Please enter a valid name
-        </mat-error> -->
+            <mat-error *ngIf="formProfile.controls['email'].errors?.['email']">
+                Por favor insira um email válido
+            </mat-error>
+        </mat-form-field>
 
-        
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Senha</mat-label>
+            <input type="password" matInput formControlName="password">
+            <mat-error *ngIf="formProfile.controls['password'].errors?.['pattern']">
+                A senha deve conter no mínimo 8 caracteres,
+                uma letra maiúscula, uma letra minúscula, um algarismo e um símbolo.
+            </mat-error>
+        </mat-form-field>
 
-    </mat-form-field>    
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Morada</mat-label>
+            <input type="password" matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
+        </mat-form-field>
 
-
-
-    <!-- <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
-        Please enter a valid email address
-      </mat-error>
-      <mat-error *ngIf="emailFormControl.hasError('required')">
-        Email is <strong>required</strong>
-      </mat-error> -->
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Email</mat-label>
-        <input matInput formControlName="email">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Senha</mat-label>
-        <input type="password" matInput formControlName="password">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Morada</mat-label>
-        <input type="password" matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
-    </mat-form-field>
-
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>Código-postal</mat-label>
-        <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
-        <mat-hint align="end">{{ZipCode.value.length}} / 8</mat-hint>
-    </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>Código-postal</mat-label>
+            <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
+            <mat-hint align="end">{{ZipCode.value.length}} / 8</mat-hint>
+        </mat-form-field>
 
 
-    <mat-form-field class="example-full-width" appearance="fill">
-        <mat-label>País</mat-label>
-        <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais">
-    </mat-form-field>
+        <mat-form-field class="example-full-width" appearance="fill">
+            <mat-label>País</mat-label>
+            <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais">
+        </mat-form-field>
 
-    <div class="example-button-row">
-        <button type="submit" mat-raised-button color="warn">Registar!</button>
-    </div>
-</form>
+        <mat-error *ngIf="formProfile.invalid">*Todos os campos são de preenchimento obrigatório </mat-error>
 
+        <div class="example-button-row">
+            <button type="submit" mat-raised-button color="warn">Registar!</button>
+        </div>
+    </form>
+</div>

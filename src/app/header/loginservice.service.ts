@@ -19,6 +19,10 @@ export class LoginserviceService {
     return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}&password=${password}`)
   }
 
+  getEmail(email:string){
+    return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}`)
+  }
+
 //octaviomgfernandes@gmail.com
 
 }

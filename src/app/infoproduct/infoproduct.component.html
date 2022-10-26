@@ -1,4 +1,7 @@
-<p *ngIf="id===0" style="text-align: center;">Não foram selecionados produtos</p>
+<div *ngIf="id===0" style="text-align: center;">
+    <p>Não foram selecionados produtos...</p>
+    <p>Clique <a routerLink="" routerLinkActive="activa">Aqui</a> para voltar a página principal</p>
+</div>
 
 
 <div *ngIf="id!==0" class="infobox">

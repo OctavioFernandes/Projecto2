@@ -3,10 +3,10 @@
     align-items: center;
     justify-content: center;
 }
-.imgbox{
-    /* width: 200px;
-    height: 150px; */
-}
+/* .imgbox{
+    width: 200px;
+    height: 150px;
+} */
 
 .infobox{
     text-align: center;
@@ -32,4 +32,7 @@
 
 .infobox p:nth-child(4){
     margin-top: 20px;
+}
+.infobox p:last-child{
+    margin-bottom: 50px;
 }

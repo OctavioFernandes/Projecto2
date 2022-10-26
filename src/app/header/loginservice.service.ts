@@ -21,6 +21,10 @@ export class LoginserviceService {
     return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}&password=${encodeURIComponent(password)}`)
   }
 
+  getAllUsers(){
+    return this.http.get<User[]>(`${this.urlAPI}/users`)
+  }
+
   getEmail(email:string){
     return this.http.get<User[]>(`${this.urlAPI}/users/?email=${email}`)
   }

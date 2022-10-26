@@ -15,38 +15,16 @@ export class CreateprofileComponent implements OnInit {
 
   //octaviomgfernandes@gmail.com
 
-  // @Input()
-  // set userloged(registo: any) {
-  //   if (registo !== undefined) {
-  //     console.log("sou o perfil e recebi:");
-  //     console.log(registo.nome);
-  //     this.formProfile.setValue({
-  //       nome: registo.nome,
-  //       email: registo.email,
-  //       password: registo.password,
-  //       morada: registo.morada,
-  //       codigoPostal: registo.codigoPostal,
-  //       pais: registo.pais,
-  //       wishlist: registo.wishlist,
-  //       active: registo.active
-  //     });
-  //     this.insertMode = false;
-  //     this.idToPut = registo.id;
-  //     console.log("corri input");
-  //     console.log(this.formProfile.value);
-  //     console.log(this.insertMode);
-  //   }
-  // }
-
   formProfile!: FormGroup;
   formMensage!: string;
   user!: User;
   validateUserPopUp: boolean = false;
   idToPut!: number;
   insertMode: boolean = true;
-  editUserData:boolean = false;
+  editUserData: boolean = false;
 
-  email: string = "qqq@gmail.com"
+  emailsList: string[] = [];
+  emaiDbExist: boolean = false;
 
   constructor(private servLogin: LoginserviceService, public dialog: MatDialog, private router: Router) { }
 
@@ -85,10 +63,36 @@ export class CreateprofileComponent implements OnInit {
         active: this.servLogin.user.active
       });
       this.insertMode = false;
-      this.user =  this.servLogin.user;      
+      this.user = this.servLogin.user;
     }
 
+    this.getEmailsList()
+
   }
+
+  // insertUser() {
+
+  //   if (this.formProfile.valid) {
+
+  //     if (this.insertMode) {
+
+  //       this.servLogin.insertUser(this.formProfile.value)
+  //         .subscribe(response => {
+  //           this.validateUserPopUp = true;
+  //         });
+
+  //     } else {
+  //       this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
+  //         .subscribe(response => {
+  //           this.validateUserPopUp = true;
+  //         });
+  //       // Atualizar dados
+  //       // this.validateUserPopUp = true;        
+  //     }
+
+  //   }
+  // }
+
 
   insertUser() {
 
@@ -96,18 +100,43 @@ export class CreateprofileComponent implements OnInit {
 
       if (this.insertMode) {
 
-        this.servLogin.insertUser(this.formProfile.value)
-          .subscribe(response => {
-            this.validateUserPopUp = true;
-          });
+        if (!this.emailsList.includes(this.formProfile.value.email)) {
 
+          this.servLogin.insertUser(this.formProfile.value)
+            .subscribe(response => {
+              this.validateUserPopUp = true;
+            });
+        } else {
+          this.emaiDbExist = true;
+        }
       } else {
-        this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
-        .subscribe(response => {
-          this.validateUserPopUp = true;
-        });
-        // Atualizar dados
-        // this.validateUserPopUp = true;        
+        // console.log("antes splice");
+        // console.log(this.emailsList);
+
+        let emailsLista = [...this.emailsList];
+
+        console.log("antes splice");
+        console.log(emailsLista);        
+
+        emailsLista.splice((emailsLista.indexOf(this.servLogin.user.email)),1);
+
+        // this.emailsList.splice((this.emailsList.indexOf(this.formProfile.value.email)),1);
+
+        console.log("depois splice");
+        console.log(emailsLista);
+
+
+        // console.log("depois splice");
+        // console.log(this.emailsList);
+
+        if (!emailsLista.includes(this.formProfile.value.email)) {
+          this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
+            .subscribe(response => {
+              this.validateUserPopUp = true;
+            });
+        } else {
+          this.emaiDbExist = true;
+        }
       }
 
     }
@@ -119,40 +148,33 @@ export class CreateprofileComponent implements OnInit {
     this.formProfile.reset();
   }
 
-  activeEditMode(){
+  closeEmailExistPopUp() {
+    this.emaiDbExist = !this.emaiDbExist;
+  }
+
+  activeEditMode() {
     this.editUserData = !this.editUserData
   }
 
-
-  // Testes Validar não duplicar emails
-  testeEmail(control: FormControl) {
-    if (control.value != null && control.value.email === this.email) {
-      return { testeEmail: true }
-    } else {
-      return null
-    }
-  }
-
-  emailExistDb(control: FormControl) {
-
-    this.servLogin.getEmail(control.value.email)
-      .subscribe(result => {
-
-        // this.user = result
-
-        // if (control.value != null
-        //   && control.value.email === this.user[0].email) {
-
-        //   return { emailExistDb: true }
-
-        // } else {
-
-        //   return null
-
-        // }
+  getEmailsList() {
+    this.servLogin.getAllUsers()
+      .subscribe(response => {
+        for (let index = 0; index < response.length; index++) {
+          this.emailsList.push(response[index].email);
+        }
       })
   }
-  // Testes Validar não duplicar emails
+
+  // validEmail(control: FormControl) {
+
+  //   if (control.value !== null) {
+
+  //     if (this.emailsList.includes(control.value)) {
+  //       return { validEmail: true };
+  //     }
+  //   }
+  //   return null;
+  // }
 }
 
 

@@ -24,6 +24,11 @@
             <mat-error *ngIf="formProfile.controls['email'].errors?.['email']">
                 Por favor insira um email válido
             </mat-error>
+
+            <!-- <mat-error *ngIf="formProfile.controls['email'].errors?.['validEmail']">
+                Este email já existe na BD
+            </mat-error> -->
+
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -37,6 +42,7 @@
                 A senha deve conter no mínimo 8 caracteres,
                 uma letra maiúscula, uma letra minúscula, um algarismo e um símbolo.
             </mat-error>
+
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
@@ -75,7 +81,8 @@
 
             <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>            
 
-            <button *ngIf="formProfile.valid && !insertMode && editUserData" mat-raised-button color="warn" (click)="insertUser()">Alterar informação</button>
+            <button *ngIf="formProfile.valid && !insertMode && editUserData" mat-raised-button color="warn">Alterar informação</button>
+            <!-- (click)="insertUser()" -->
 
             <button *ngIf="!insertMode && !editUserData" mat-raised-button color="warn" (click)="activeEditMode()">Editar dados!</button>
 
@@ -94,6 +101,15 @@
         <button mat-raised-button color="warn" (click)="closeUserPopUp()">Ok!</button>
     </div>
 </div>
+
+
+<div *ngIf="emaiDbExist" class="user-registed-popup">
+    <div class="user-registed-box">
+        <div>Email já existe. Verifique.</div>
+        <button mat-raised-button color="warn" (click)="closeEmailExistPopUp()">Ok!</button>
+    </div>
+</div>
+
 <!-- 
 <pre>
     {{formProfile.value|json}}

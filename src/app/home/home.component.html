@@ -4,8 +4,11 @@
 </div>
 
 <p class="highlights-text">Destaques</p>
-<div class="highlights" (click)="goToProductsPage()">
+<div class="highlights">
         <div *ngFor="let product of productsList">
-                <img *ngIf="product.destaque" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome">
+                <img *ngIf="product.destaque" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" 
+                (click)="showProductInfo(product.id)">
+
+                <!-- routerLink="products" routerLinkActive="activa" -->
         </div>
 </div>

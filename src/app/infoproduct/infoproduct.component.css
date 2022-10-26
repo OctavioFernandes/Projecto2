@@ -1,0 +1,35 @@
+.images{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.imgbox{
+    /* width: 200px;
+    height: 150px; */
+}
+
+.infobox{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.infobox p{
+    padding: 2px 0px;
+    margin: 0;
+}
+
+.infobox p:first-child{
+    font-weight: bold;
+    font-size: xx-large;
+    padding: 20px 0px;
+}
+
+.infobox p:nth-child(2){
+    font-size: x-large;
+    padding: 20px 0px;
+}
+
+.infobox p:nth-child(4){
+    margin-top: 20px;
+}

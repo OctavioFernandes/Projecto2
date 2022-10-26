@@ -35,14 +35,15 @@ export class HomeComponent implements OnInit {
     this.servProducts.getProducts()
     .subscribe(response=>{
       this.productsList = response;
-      console.log(this.productsList)
+      // console.log(this.productsList)
     })
-
   }
 
-  goToProductsPage(){
-    this.router.navigateByUrl('products')
+  showProductInfo(id: number){
+    this.router.navigateByUrl(`/infoproducts/${id}`)
   }
+
+
 
 
 

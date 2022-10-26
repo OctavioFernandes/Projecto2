@@ -1,0 +1,14 @@
+<p *ngIf="id===0" style="text-align: center;">Não foram selecionados produtos</p>
+
+
+<div *ngIf="id!==0" class="infobox">
+    <p>{{product.marca}}</p>
+    <p>{{product.nome}}</p>
+    <p class="images">
+        <img [src]="'/assets/Imagens/'+product.foto_principal" alt="Foto principal" class="imgbox">
+        <img [src]="'/assets/Imagens/'+product.foto_secundaria" alt="Foto secundaria" class="imgbox">
+    </p>
+    <p>{{product.tipo_de_produto+' '+product.cor}}</p>
+    <p>{{product.preco+'€'}}</p>
+    <p>{{product.descricao}}</p>
+</div>

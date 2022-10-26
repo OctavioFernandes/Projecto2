@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
 import { LogedguardService } from './header/logedguard.service';
 import { HomeComponent } from './home/home.component';
+import { InfoproductComponent } from './infoproduct/infoproduct.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProdutsComponent } from './produts/produts.component';
 import { ProfileComponent } from './profile/profile.component';
@@ -15,6 +16,8 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent, canActivate:[LogedguardService]},
   { path: 'createprofile', component: CreateprofileComponent},
   { path: 'products', component: ProdutsComponent},
+  { path: 'infoproducts', component: InfoproductComponent},
+  { path: 'infoproducts/:id', component: InfoproductComponent},
 
 
   { path: '**', component: PagenotfoundComponent }

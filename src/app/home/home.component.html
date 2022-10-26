@@ -1,4 +1,11 @@
 <div class="slider">
-        <img src="\assets\Imagens\slider1.jpg" alt="Slider image">
-        <div class="slider-phrase">Saldos</div>    
+        <div class="slider-phrase">Saldos</div>
+        <img [src]="sliderImg" alt="Slider image">
+</div>
+
+<p class="highlights-text">Destaques</p>
+<div class="highlights" (click)="goToProductsPage()">
+        <div *ngFor="let product of productsList">
+                <img *ngIf="product.destaque" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome">
+        </div>
 </div>

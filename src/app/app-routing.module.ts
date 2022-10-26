@@ -4,6 +4,7 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
 import { LogedguardService } from './header/logedguard.service';
 import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
+import { ProdutsComponent } from './produts/produts.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
@@ -13,6 +14,7 @@ const routes: Routes = [
   { path: 'wishlist', component: WishlistComponent, canActivate:[LogedguardService]},
   { path: 'profile', component: ProfileComponent, canActivate:[LogedguardService]},
   { path: 'createprofile', component: CreateprofileComponent},
+  { path: 'products', component: ProdutsComponent},
 
 
   { path: '**', component: PagenotfoundComponent }

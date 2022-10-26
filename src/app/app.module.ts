@@ -17,6 +17,7 @@ import { WishlistComponent } from './wishlist/wishlist.component';
 import { ProfileComponent } from './profile/profile.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
 import { FooterComponent } from './footer/footer.component';
+import { ProdutsComponent } from './produts/produts.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { FooterComponent } from './footer/footer.component';
     ProfileComponent,
     CreateprofileComponent,
     FooterComponent,
+    ProdutsComponent,
   ],
   imports: [
     BrowserModule,

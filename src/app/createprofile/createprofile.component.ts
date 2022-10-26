@@ -110,25 +110,10 @@ export class CreateprofileComponent implements OnInit {
           this.emaiDbExist = true;
         }
       } else {
-        // console.log("antes splice");
-        // console.log(this.emailsList);
-
         let emailsLista = [...this.emailsList];
 
-        console.log("antes splice");
-        console.log(emailsLista);        
-
         emailsLista.splice((emailsLista.indexOf(this.servLogin.user.email)),1);
-
-        // this.emailsList.splice((this.emailsList.indexOf(this.formProfile.value.email)),1);
-
-        console.log("depois splice");
-        console.log(emailsLista);
-
-
-        // console.log("depois splice");
-        // console.log(this.emailsList);
-
+        
         if (!emailsLista.includes(this.formProfile.value.email)) {
           this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
             .subscribe(response => {

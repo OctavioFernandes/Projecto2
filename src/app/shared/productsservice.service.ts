@@ -18,4 +18,12 @@ export class ProductsserviceService {
   getProduct(id:number){
     return this.http.get<Product>(`${this.urlAPI}/${id}`);
   }
+
+  // pesquisaPhotos(pesquisa : string, initial : number, recPage: number) {
+  //   return this.http.get<Photo[]>(`${this.urlAPI}?title_like=${pesquisa}&_start=${initial}&_limit=${recPage}`, { observe : 'response' })
+  //     .pipe(
+  //       catchError(this.processaErro)
+  //     );
+  // }
+
 }

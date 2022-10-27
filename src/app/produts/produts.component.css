@@ -1,0 +1,53 @@
+.productspage{
+    display: flex;
+}
+.sidemenuconatiner {
+    position: relative;
+    top: 0;
+    left: 0;
+}
+
+.sidemenu {
+    width: 180px;
+    border: 2px solid black;
+    margin: 5px;
+    text-align: center;
+}
+
+.sidemenu div {
+    padding: 5px 0;
+}
+
+.sidemenuheader {
+    background-color: orange;
+    color: white;
+    font-weight:bold
+}
+
+.sidemenu input, .sidemenu label{
+    cursor: pointer;
+}
+
+.productspage{
+    display: flex;
+}
+
+.productsshow{
+    border: 2px solid black;
+    margin: 5px;
+}
+
+.productsshowspace{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.box{
+    background-color: darkgreen;
+    width: 250px;
+    height: 250px;
+
+    border: 1px solid black;
+}

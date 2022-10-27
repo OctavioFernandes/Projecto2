@@ -17,7 +17,7 @@ export class HeaderComponent implements OnInit {
   userValid!: boolean;
   user: User[] = [];
 
-  @Output() userloged : EventEmitter<User> = new EventEmitter();
+  // @Output() userloged : EventEmitter<User> = new EventEmitter();
 
 
   constructor(protected servLogin: LoginserviceService, private router: Router) { }
@@ -67,15 +67,17 @@ export class HeaderComponent implements OnInit {
 
             if (Array.isArray(this.user) && this.user.length && this.user[0].active) {
 
-              this.userloged.emit(this.user[0]);
+              // this.userloged.emit(this.user[0]);
               this.servLogin.user=this.user[0];
-
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;
               this.router.navigateByUrl("");
               setTimeout(() => this.loginPopUp = false, 1000);
               setTimeout(() => this.statusMsg = "", 1000);
               this.formLogin.reset();
+
+              console.log("User loged: "+this.servLogin.loged+"\nUser loged data: ");
+              console.log(this.servLogin.user);
 
             } else {
               this.statusMsg = "Utilizador inexistente!";

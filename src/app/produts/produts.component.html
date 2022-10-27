@@ -1,1 +1,44 @@
-<p>produts works!</p>
+<div class="productspage">
+    <div class="sidemenuconatiner">
+        <div class="sidemenu">
+            <div class="sidemenuheader">Tipo</div>
+            <div *ngFor="let type of typesList">
+                <input type="checkbox" [name]="type" [id]="type" (click)="filter('Tipo',type)">
+                <label [for]="type">{{type}}</label>
+            </div>
+
+
+            <div class="sidemenuheader">Cor</div>
+            <div *ngFor="let color of colorsList">
+                <input type="checkbox" [name]="color" [id]="color" (click)="filter('Cor',color)">
+                <label [for]="color">{{color}}</label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="productsshow">
+
+        <div class="productsshowcontainer">
+
+            <div class="productsshowheader">
+                <p>Homem</p>
+                <p>Total de resultados: {{totalProducts}}</p>
+            </div>
+
+            <div>
+                <div class="productsshowspace">
+                    <div class="box">1</div>
+                    <div class="box">2</div>
+                    <div class="box">3</div>
+                    <div class="box">4</div>
+                    <div class="box">5</div>
+                    <div class="box">6</div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>

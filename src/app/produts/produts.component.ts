@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
 
 @Component({
@@ -8,19 +9,24 @@ import { ProductsserviceService } from '../shared/productsservice.service';
 })
 export class ProdutsComponent implements OnInit {
 
-  colorsList : string[] = [];  
-  typesList : string[] = [];
-  totalProducts! : number;
+  colorsList: string[] = [];
+  typesList: string[] = [];
+  totalProducts!: number;
+  recPage: number = 6;
+  productsList: Product[] = [];
+  seeMoreButton:boolean = true;
 
-  constructor(private servProd:ProductsserviceService) { }
+
+  constructor(private servProd: ProductsserviceService) { }
 
   ngOnInit(): void {
-    this.loadColorsAndTipes()
+    this.loadColorsAndTipes();
+    this.getPaginateProducts();
 
   }
 
-  loadColorsAndTipes(){
-    this.servProd.getProducts().subscribe(response=>{
+  loadColorsAndTipes() {
+    this.servProd.getProducts().subscribe(response => {
       for (let index = 0; index < response.length; index++) {
 
         if (!this.colorsList.includes(response[index].cor)) {
@@ -29,20 +35,47 @@ export class ProdutsComponent implements OnInit {
 
         if (!this.typesList.includes(response[index].tipo_de_produto)) {
           this.typesList.push(response[index].tipo_de_produto);
-        }     
+        }
       }
 
       this.totalProducts = response.length
       this.colorsList.sort();
       this.typesList.sort();
       console.log(this.colorsList);
-      
+
       console.log(this.typesList);
     })
   }
 
-  filter(key:string, value:string){
-    console.log(key+' '+value);
+  filter(key: string, value: string) {
+    console.log(key + ' ' + value);
+  }
+
+  getPaginateProducts() {
+    this.servProd.searchProducts(this.recPage).subscribe(response => {
+
+      this.productsList=response;
+
+
+
+      console.log(this.productsList);
+
+    });
+  }
+
+  seeMoreProducts(){
+
+    if ((this.recPage + 6) >= this.totalProducts) {
+
+      this.recPage = this.totalProducts;
+      this.seeMoreButton = false;
+
+    }else{
+      this.recPage = this.recPage + 6 ;
+    }
+    this.getPaginateProducts();
+    
+    console.log(this.recPage);
 
   }
 

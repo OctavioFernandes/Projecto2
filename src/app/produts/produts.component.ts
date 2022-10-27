@@ -123,6 +123,16 @@ export class ProdutsComponent implements OnInit {
 
     this.servProd.filterProductsNew(this.addUrl).subscribe(response => {
       this.totalProducts = response.length;
+
+      console.log("total:produtos" + this.totalProducts);
+      if (this.totalProducts <= 6) {
+        this.seeMoreButton = false;
+      } else if (this.recPage === this.totalProducts) {
+        this.seeMoreButton = false;
+      }
+      else {
+        this.seeMoreButton = true;
+      }
     });
 
 

@@ -8,7 +8,5 @@
         <div *ngFor="let product of productsList">
                 <img *ngIf="product.destaque" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" 
                 (click)="showProductInfo(product.id)">
-
-                <!-- routerLink="products" routerLinkActive="activa" -->
         </div>
 </div>

@@ -9,7 +9,7 @@ export class ProductsserviceService {
 
   private urlAPI = "http://localhost:3000/products";
 
-  public urlAPIseacrh : string = "http://localhost:3000/products";
+  // public urlAPIseacrh : string = "http://localhost:3000/products";
 
   constructor(private http : HttpClient) { }
 
@@ -29,9 +29,20 @@ export class ProductsserviceService {
 
   filterProducts(recPage: number, filter: string){
 
-    console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
+    return this.http.get<Product[]>(`${this.urlAPI}?_limit=${recPage}${filter}`);
+  }
 
-    return this.http.get<Product[]>(`${this.urlAPI}?_limit=${recPage}${filter}`)
+  filterProductsNew(filter: string, recPage?: number){
+    // console.log("recPage:");
+    // console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
+
+    if (recPage===undefined) {
+      return this.http.get<Product[]>(`${this.urlAPI}?${filter}`)
+    } else {
+      return this.http.get<Product[]>(`${this.urlAPI}?_limit=${recPage}${filter}`)
+    }
+
+    
 
   }
 

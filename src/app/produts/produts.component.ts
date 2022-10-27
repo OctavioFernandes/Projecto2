@@ -26,6 +26,7 @@ export class ProdutsComponent implements OnInit {
   ngOnInit(): void {
     this.loadColorsAndTipes();
     this.getPaginateProducts();
+    this.filterProducts("StartPage", "");
 
   }
 
@@ -42,12 +43,13 @@ export class ProdutsComponent implements OnInit {
         }
       }
 
-      this.totalProducts = response.length
+      // this.totalProducts = response.length
+      // console.log("totalProducts: "+this.totalProducts)
       this.colorsList.sort();
       this.typesList.sort();
-      console.log(this.colorsList);
+      // console.log(this.colorsList);
 
-      console.log(this.typesList);
+      // console.log(this.typesList);
     })
   }
 
@@ -55,81 +57,75 @@ export class ProdutsComponent implements OnInit {
     this.servProd.searchProducts(this.recPage).subscribe(response => {
 
       this.productsList = response;
-      console.log(this.productsList);
+      // console.log(this.productsList);
 
     });
-  }
-
-  seeMoreProducts() {
-
-    if ((this.recPage + 6) >= this.totalProducts) {
-
-      this.recPage = this.totalProducts;
-      this.seeMoreButton = false;
-
-    } else {
-      this.recPage = this.recPage + 6;
-    }
-    this.getPaginateProducts();
-
-    console.log(this.recPage);
-
-    console.log(this.servProd.urlAPIseacrh);
-
-    this.servProd.urlAPIseacrh += (`limit=${this.recPage}`);
-
-    console.log(this.servProd.urlAPIseacrh);
-
   }
 
   filterProducts(key: string, value: string) {
 
     let field: string = "";
 
-    this.addUrl="";
+    this.addUrl = "";
 
-    if (key === "Tipo") {
+    switch (key) {
 
-      field = "&tipo_de_produto=" + value;
-      console.log(field);
+      case "Tipo":
+        field = "&tipo_de_produto=" + value;
+        // console.log(field);
 
-      if (!this.url.includes(field)) {
-        this.url.push(field);
+        if (!this.url.includes(field)) {
+          this.url.push(field);
 
-      } else {
-        this.url.splice(this.url.indexOf(field), 1);
-      }
+        } else {
+          this.url.splice(this.url.indexOf(field), 1);
+        }
+        break;
 
+      case "Cor":
+        field = "&cor=" + value;
+        // console.log(field);
 
-    } else {
-      field = "&cor=" + value;
-      console.log(field);
+        if (!this.url.includes(field)) {
+          this.url.push(field);
 
-      if (!this.url.includes(field)) {
-        this.url.push(field);
+        } else {
+          this.url.splice(this.url.indexOf(field), 1);
+        }
+        break;
 
-      } else {
-        this.url.splice(this.url.indexOf(field), 1);
-      }
+      case "VerMais":
+        if ((this.recPage + 6) >= this.totalProducts) {
 
+          this.recPage = this.totalProducts;
+          this.seeMoreButton = false;
+
+        } else {
+          this.recPage = this.recPage + 6;
+        }
+        break;
+
+      case "StartPage":
+        break;
+      // default:
+      //   break;
     }
-
-    // field = key + value;
-
-    console.log(this.url);
-
-    console.log(this.addUrl);
 
     for (let i = 0; i < this.url.length; i++) {
-      this.addUrl += this.url[i];      
+      this.addUrl += this.url[i];
     }
-    
-    console.log("AddURL:"+this.addUrl);
 
-    this.servProd.filterProducts(this.recPage,this.addUrl).subscribe(response=>{
+    console.log(this.recPage);
+
+    this.servProd.filterProducts(this.recPage, this.addUrl).subscribe(response => {
       this.productsList = response;
+    });
+
+    this.servProd.filterProductsNew(this.addUrl).subscribe(response => {
       this.totalProducts = response.length;
-    })
+    });
+
+
 
 
     //http://localhost:3000/products?limit=6&tipo_de_produto=Calças&cor=Azul&cor=Laranja&tipo_de_produto=Casaco

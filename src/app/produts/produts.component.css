@@ -1,6 +1,8 @@
 .productspage {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
+    align-items: flex-start;
+    /* align-items: stretch; */
 }
 
 .sidemenuconatiner {

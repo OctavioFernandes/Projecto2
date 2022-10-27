@@ -32,7 +32,7 @@
 }
 
 .productsshow {
-    border: 2px solid black;
+    /* border: 2px solid black; */
     margin: 5px;
 }
 
@@ -42,13 +42,15 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    cursor: pointer;
 }
 
 .box {
-    background-color: darkgreen;
+    /* background-color: darkgreen; */
     width: 300px;
-    height: 400px;
-    border: 1px solid black;
+    height: 500px;
+    margin: 10px;
+    /* border: 1px solid black; */
 }
 
 .productsshowheader div {
@@ -59,10 +61,31 @@
 }
 
 
-.productsshowfooter{
+.productsshowfooter {
     text-align: center;
     cursor: pointer;
     color: white;
     background-color: black;
     padding: 20px;
+}
+
+.formatimg {
+    position: relative;
+    width: 300px;
+    height: 400px;    
+}
+
+.formattext div {
+    padding: 5px 0;
+}
+
+.wishlist {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    cursor: pointer;
+}
+
+.wishlist i {
+    color: red;
 }

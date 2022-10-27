@@ -29,12 +29,22 @@
 
             <!-- <div> -->
             <div class="productsshowspace">
-                <div class="box">1</div>
-                <div class="box">2</div>
-                <div class="box">3</div>
-                <div class="box">4</div>
-                <div class="box">5</div>
-                <div class="box">6</div>
+                <div *ngFor="let product of productsList" class="box">
+                    <div class="formatimg">
+                        <div class="wishlist">
+                            <i class="far fa-star fa-lg"></i>
+                            <i class="fas fa-star fa-lg"></i>
+                        </div>
+                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)">
+
+                    </div>
+                    <div class="formattext">
+                        <div style="font-weight: bold; font-size: large;">{{product.marca}}</div>
+                        <div>{{product.nome}}</div>
+                        <div style="font-size: large;">{{product.preco}} €</div>
+                    </div>
+                </div>
+
             </div>
             <!-- </div> -->
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
 
@@ -17,7 +18,7 @@ export class ProdutsComponent implements OnInit {
   seeMoreButton:boolean = true;
 
 
-  constructor(private servProd: ProductsserviceService) { }
+  constructor(private servProd: ProductsserviceService, private router:Router) { }
 
   ngOnInit(): void {
     this.loadColorsAndTipes();
@@ -55,9 +56,6 @@ export class ProdutsComponent implements OnInit {
     this.servProd.searchProducts(this.recPage).subscribe(response => {
 
       this.productsList=response;
-
-
-
       console.log(this.productsList);
 
     });
@@ -78,5 +76,12 @@ export class ProdutsComponent implements OnInit {
     console.log(this.recPage);
 
   }
+  showProductInfo(id: number){
+    this.router.navigateByUrl(`/infoproducts/${id}`)
+  }
 
 }
+
+
+
+// <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" class="box">

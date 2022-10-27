@@ -4,14 +4,14 @@
         <div class="sidemenu">
             <div class="sidemenuheader">Tipo</div>
             <div *ngFor="let type of typesList">
-                <input type="checkbox" [name]="type" [id]="type" (click)="filter('Tipo',type)">
+                <input type="checkbox" [name]="type" [id]="type" (click)="filterProducts('Tipo',type)">
                 <label [for]="type">{{type}}</label>
             </div>
 
 
             <div class="sidemenuheader">Cor</div>
             <div *ngFor="let color of colorsList">
-                <input type="checkbox" [name]="color" [id]="color" (click)="filter('Cor',color)">
+                <input type="checkbox" [name]="color" [id]="color" (click)="filterProducts('Cor',color)">
                 <label [for]="color">{{color}}</label>
             </div>
 

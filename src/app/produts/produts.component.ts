@@ -36,7 +36,7 @@ export class ProdutsComponent implements OnInit {
   }
 
   addWishlist(id: number) {
-    console.log("recebi o id a introduzir: " + id);
+    // console.log("recebi o id a introduzir: " + id);
     this.servLogin.user.wishlist?.push(id);
     this.wishlistAddedPopup = true;
 

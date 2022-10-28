@@ -13,7 +13,7 @@ export class LoginserviceService {
   loged : boolean = false;
   user! : User;
 
-  // TestesWishlist
+  // testes Area
 
   // loged : boolean = true;
 
@@ -28,6 +28,8 @@ export class LoginserviceService {
   //   "active": true,
   //   "id": 2
   // }
+  
+  // testes Area
   
   constructor(private http : HttpClient) { }
 

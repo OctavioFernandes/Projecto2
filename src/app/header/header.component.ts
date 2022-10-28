@@ -76,8 +76,8 @@ export class HeaderComponent implements OnInit {
               setTimeout(() => this.statusMsg = "", 1000);
               this.formLogin.reset();
 
-              console.log("User loged: "+this.servLogin.loged+"\nUser loged data: ");
-              console.log(this.servLogin.user);
+              // console.log("User loged: "+this.servLogin.loged+"\nUser loged data: ");
+              // console.log(this.servLogin.user);
 
             } else {
               this.statusMsg = "Utilizador inexistente!";

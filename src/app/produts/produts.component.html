@@ -31,19 +31,39 @@
             <div class="productsshowspace">
                 <div *ngFor="let product of productsList" class="box">
                     <div class="formatimg">
-                        <div class="wishlist">
-                            <i class="far fa-star fa-lg"></i>
-                            <i class="fas fa-star fa-lg"></i>
+
+
+                        <!-- *ngIf="servLogin.loged" -->
+                        <div *ngIf="servLogin.loged" class="wishlist">
+
+                            <i *ngIf="!wishList(product.id)" class="far fa-star fa-lg"></i>
+
+                            <i *ngIf="wishList(product.id)" class="fas fa-star fa-lg"></i>
+
+                            <!-- Teste wish list com ngFor -->
+
+                            <!-- <div *ngFor="let wishlist of servLogin.user.wishlist">
+                                <i *ngIf="(wishlist === product.id)" class="fas fa-star fa-lg" #star></i>
+                            </div> -->     
+                            
+                            <!-- Inicial -->
+
+                            <!-- <i class="far fa-star fa-lg"></i>
+
+                            <i class="fas fa-star fa-lg"></i> -->
+
+
                         </div>
-                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()" (mouseout)="showFirstImage()">
+
+                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome"
+                            (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()"
+                            (mouseout)="showFirstImage()">
+
+                            <!-- Testes trocar imagem de fundo -->
+
                         <!-- <img *ngIf="!secoundImg" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()">
 
-                        <img *ngIf="secoundImg" [src]="'/assets/Imagens/'+product.foto_secundaria" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseout)="showFirstImage()"> -->
-
-                        <!-- <img [src]="toggleImg" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()" (mouseout)="showFirstImage()"> -->
-
-
-
+                        <img *ngIf="secoundImg" [src]="'/assets/Imagens/'+product.foto_secundaria" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseout)="showFirstImage(product.id)"> -->
 
                     </div>
                     <div class="formattext">

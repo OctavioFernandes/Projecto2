@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginserviceService } from '../header/loginservice.service';
 import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
 
@@ -22,19 +23,43 @@ export class ProdutsComponent implements OnInit {
   secoundImg: boolean = false;
 
 
-  constructor(private servProd: ProductsserviceService, private router: Router) { }
+
+  constructor(private servProd: ProductsserviceService, private router: Router, protected servLogin: LoginserviceService) { }
 
   ngOnInit(): void {
     this.loadColorsAndTipes();
     this.getPaginateProducts();
     this.filterProducts("StartPage", "");
 
+    this.userLoged();
+
+  }
+
+  userLoged() {
+    console.log("user logado wishList:");
+    console.log(this.servLogin.user.wishlist);
+    console.log("user logado:");
+    console.log(this.servLogin.user);
+
+    // this.servLogin.user.wishlist?.includes();
+  }
+
+  wishList(id:number){
+    console.log(this.servLogin.user.wishlist)
+    console.log(id)
+
+    console.log(this.servLogin.user.wishlist?.includes(id))
+
+    if (this.servLogin.user.wishlist?.includes(id)) {
+      return true
+    }else{
+      return false;
+    }
   }
 
   loadColorsAndTipes() {
     this.servProd.getProducts().subscribe(response => {
       for (let index = 0; index < response.length; index++) {
-
         if (!this.colorsList.includes(response[index].cor)) {
           this.colorsList.push(response[index].cor);
         }
@@ -116,7 +141,7 @@ export class ProdutsComponent implements OnInit {
       this.addUrl += this.url[i];
     }
 
-    console.log(this.recPage);
+    // console.log(this.recPage);
 
     this.servProd.filterProducts(this.recPage, this.addUrl).subscribe(response => {
       this.productsList = response;
@@ -125,7 +150,7 @@ export class ProdutsComponent implements OnInit {
     this.servProd.filterProductsNew(this.addUrl).subscribe(response => {
       this.totalProducts = response.length;
 
-      console.log("total:produtos" + this.totalProducts);
+      // console.log("total:produtos" + this.totalProducts);
       if (this.totalProducts <= 6) {
         this.seeMoreButton = false;
       } else if (this.recPage === this.totalProducts) {
@@ -144,13 +169,13 @@ export class ProdutsComponent implements OnInit {
   }
 
   showSecondImage() {
-    console.log("hover")
-    // this.secoundImg=true;
+    // console.log("hover")
+    this.secoundImg = true;
   }
 
   showFirstImage() {
-    console.log("out")
-    this.secoundImg=false;
+    // console.log("out")
+    this.secoundImg = false;
   }
 
 }

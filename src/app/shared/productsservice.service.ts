@@ -28,7 +28,7 @@ export class ProductsserviceService {
   }
 
   filterProducts(recPage: number, filter: string){
-    console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
+    // console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
 
     return this.http.get<Product[]>(`${this.urlAPI}?_limit=${recPage}${filter}`);
   }

@@ -135,18 +135,19 @@ export class ProdutsComponent implements OnInit {
       }
     });
 
-
     //http://localhost:3000/products?limit=6&tipo_de_produto=Calças&cor=Azul&cor=Laranja&tipo_de_produto=Casaco
-
-
   }
-
-
-
-
 
   showProductInfo(id: number) {
     this.router.navigateByUrl(`/infoproducts/${id}`);
+  }
+
+  showSecondImage(value:string){
+    console.log("hover")
+  }
+
+  showFirstImage(value:string){
+    console.log("not hover")
   }
 
 }

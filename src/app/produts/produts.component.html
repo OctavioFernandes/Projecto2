@@ -35,7 +35,7 @@
                             <i class="far fa-star fa-lg"></i>
                             <i class="fas fa-star fa-lg"></i>
                         </div>
-                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)">
+                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage(product.foto_secundaria)" (mouseout)="showFirstImage(product.foto_principal)">
 
                     </div>
                     <div class="formattext">
@@ -44,7 +44,6 @@
                         <div style="font-size: large;">{{product.preco}} €</div>
                     </div>
                 </div>
-
             </div>
             <!-- </div> -->
 

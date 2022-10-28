@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   // @Output() userloged : EventEmitter<User> = new EventEmitter();
 
 
-  constructor(protected servLogin: LoginserviceService, private router: Router, private renderer: Renderer2) { }
+  constructor(protected servLogin: LoginserviceService, private router: Router) { }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({

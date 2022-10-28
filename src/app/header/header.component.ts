@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, Renderer2 } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Route, Router, RouterLink } from '@angular/router';
 import { User } from '../shared/user';
@@ -20,7 +20,7 @@ export class HeaderComponent implements OnInit {
   // @Output() userloged : EventEmitter<User> = new EventEmitter();
 
 
-  constructor(protected servLogin: LoginserviceService, private router: Router) { }
+  constructor(protected servLogin: LoginserviceService, private router: Router, private renderer: Renderer2) { }
 
   ngOnInit(): void {
     this.formLogin = new FormGroup({
@@ -97,7 +97,15 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl("");
   }
 
+  showOptions(){
+    const parent = document.getElementById('dropdowncontainer');
+    parent!.style.height = '320px';
+    parent!.style.borderBottom = '2.5px solid grey';
+  }
 
-
-
+  hideOptions(){
+    const parent = document.getElementById('dropdowncontainer');
+    parent!.style.height = '72px';
+    parent!.style.borderBottom = '0';
+  }
 }

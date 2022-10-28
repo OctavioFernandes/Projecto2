@@ -1,62 +1,64 @@
-<nav class="navbar">
+<nav class="navbar" id="dropdowncontainer">
     <nav class="navbar-menu">
-        <div class="dropdown">
-            <div>Homem</div>
-            <div class="dropdown-content">
-                <div>Casacos</div>
-                <div>Camisas</div>
-                <div>Calças</div>
-                <div>Sweatshirts</div>
-                <div>Polos</div>
-                <div>Sapatos</div>
-                <div routerLink="products" routerLinkActive="activa">Todos</div>
+        <div class="boxcontainer" (mouseover)="showOptions()" (mouseout)="hideOptions()">
+            <div class="dropdown">
+                <div>Homem</div>
+                <div class="dropdown-content">
+                    <div>Casacos</div>
+                    <div>Camisas</div>
+                    <div>Calças</div>
+                    <div>Sweatshirts</div>
+                    <div>Polos</div>
+                    <div>Sapatos</div>
+                    <div routerLink="products" routerLinkActive="activa">Todos</div>
+                    <!-- <div class="teste"></div> -->
+                </div>
                 <!-- <div class="teste"></div> -->
             </div>
-            <!-- <div class="teste"></div> -->
-        </div>
-        
-        <div class="teste"></div>
 
-        <div>|</div>
+            <div class="teste"></div>
 
-        <div class="dropdown">
-            <div>Mulher</div>
-            <div class="dropdown-content">
-                <div>Vestidos</div>
-                <div>Blusões</div>
-                <div>Coletes</div>
-                <div>Jeans</div>
-                <div>Saias</div>
-                <div>Calções</div>
-                <div>Lingerie</div>
-                <div>Sapatos</div>
-                <div>Malas</div>
-                <div>Todos</div>
+            <div>|</div>
+
+            <div class="dropdown">
+                <div>Mulher</div>
+                <div class="dropdown-content">
+                    <div>Vestidos</div>
+                    <div>Blusões</div>
+                    <div>Coletes</div>
+                    <div>Jeans</div>
+                    <div>Saias</div>
+                    <div>Calções</div>
+                    <div>Lingerie</div>
+                    <div>Sapatos</div>
+                    <div>Malas</div>
+                    <div>Todos</div>
+                </div>
             </div>
-        </div>
 
-        <img src="\assets\Imagens\logo.png" alt="Logo image" routerLink="" routerLinkActive="activa"
-            [routerLinkActiveOptions]="{ exact : true }">
+            <img src="\assets\Imagens\logo.png" alt="Logo image" routerLink="" routerLinkActive="activa"
+                [routerLinkActiveOptions]="{ exact : true }">
 
-        <div class="dropdown">
-            <div>Criança</div>
-            <div class="dropdown-content">
-                <div>Menina | 6-14 Anos</div>
-                <div>Menino | 6-14 Anos</div>
-                <div>Bebé Menina | 3 Meses - 5 Anos</div>
-                <div>Bebé Menino | 3 Meses - 5 Anos</div>
-                <div>Mini | 0-12 Meses</div>
+            <div class="dropdown">
+                <div>Criança</div>
+                <div class="dropdown-content">
+                    <div>Menina | 6-14 Anos</div>
+                    <div>Menino | 6-14 Anos</div>
+                    <div>Bebé Menina | 3 Meses - 5 Anos</div>
+                    <div>Bebé Menino | 3 Meses - 5 Anos</div>
+                    <div>Mini | 0-12 Meses</div>
+                </div>
             </div>
-        </div>
 
-        <div>|</div>
+            <div>|</div>
 
-        <div class="dropdown">
-            <div>Acessórios</div>
-            <div class="dropdown-content">
-                <div>Malas</div>
-                <div>Pulseiras</div>
-                <div>Anéis</div>
+            <div class="dropdown">
+                <div>Acessórios</div>
+                <div class="dropdown-content">
+                    <div>Malas</div>
+                    <div>Pulseiras</div>
+                    <div>Anéis</div>
+                </div>
             </div>
         </div>
 
@@ -64,14 +66,19 @@
             <!-- loged -->
             <div *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</div>
 
-            <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i class="fa-regular fa-clipboard fa-lg"></i></div>
+            <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i
+                    class="fa-regular fa-clipboard fa-lg"></i></div>
 
-            <div div routerLink="createprofile" routerLinkActive="router-link-active" *ngIf="servLogin.loged" title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
+            <div div routerLink="createprofile" routerLinkActive="router-link-active" *ngIf="servLogin.loged"
+                title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
 
-            <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket fa-lg" (click)="logout()"></i></div>
+            <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket fa-lg"
+                    (click)="logout()"></i></div>
             <!-- no loged -->
-            <div routerLink="createprofile" routerLinkActive="activa" *ngIf="!servLogin.loged" title="Registar"><i class="fa-solid fa-user-plus fa-lg"></i></div>
-            <div *ngIf="!servLogin.loged" title="Iniciar Sessão" (click)="loginPopUpLoginShow()"><i class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+            <div routerLink="createprofile" routerLinkActive="activa" *ngIf="!servLogin.loged" title="Registar"><i
+                    class="fa-solid fa-user-plus fa-lg"></i></div>
+            <div *ngIf="!servLogin.loged" title="Iniciar Sessão" (click)="loginPopUpLoginShow()"><i
+                    class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
         </div>
     </nav>
 </nav>

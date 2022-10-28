@@ -35,6 +35,7 @@
 
 .navbar-icons {
     position: absolute;
+    margin-left: auto;
     right: 10px;
     display: flex;
     gap: 10px;
@@ -71,29 +72,15 @@
     padding: 2px 1px;
 }
 
-/* Testes */
-
-
-.dropdown:hover .teste{
-    display: block;
+.boxcontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
-
-.teste{
-    display: none;
-    height: 260px;
-    background-color: white;
-    position: fixed;
-    top: 20px;;
-    left: 0;
-    right: 0;
-    border-bottom: 4px solid grey;
-    /* bottom: 0; */
-    z-index: -100;
-}
-
 
 .dropdown-background{
-    display: none;
+    display: block;
     background-color: white;
     position: absolute;
     left: 0;
@@ -211,6 +198,8 @@
     border: none;
     color: white;
 }
+
+
 
 
 

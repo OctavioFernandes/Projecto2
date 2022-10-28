@@ -36,9 +36,9 @@
                         <!-- *ngIf="servLogin.loged" -->
                         <div *ngIf="servLogin.loged" class="wishlist">
 
-                            <i *ngIf="!wishList(product.id)" class="far fa-star fa-lg"></i>
+                            <i (click)="addWishlist(product.id)" *ngIf="!wishList(product.id)" class="far fa-star fa-lg"></i>
 
-                            <i *ngIf="wishList(product.id)" class="fas fa-star fa-lg"></i>
+                            <i (click)="removeWishlist(product.id)" *ngIf="wishList(product.id)" class="fas fa-star fa-lg"></i>
 
                             <!-- Teste wish list com ngFor -->
 
@@ -89,4 +89,11 @@
 
 
 
+</div>
+
+<div *ngIf="wishlistAddedPopup" class="user-registed-popup">
+    <div class="user-registed-box">
+        <div>Adicionado na wishlist.<div>
+        <button mat-raised-button color="warn" (click)="closeWishlistPopUp()">Ok!</button>
+    </div>
 </div>

@@ -20,8 +20,10 @@ export class ProdutsComponent implements OnInit {
   url: string[] = [];
   addUrl: string = "";
 
-  secoundImg: boolean = false;
+  wishlistAddedPopup = false;
 
+
+  secoundImg: boolean = false;
 
 
   constructor(private servProd: ProductsserviceService, private router: Router, protected servLogin: LoginserviceService) { }
@@ -30,29 +32,43 @@ export class ProdutsComponent implements OnInit {
     this.loadColorsAndTipes();
     this.getPaginateProducts();
     this.filterProducts("StartPage", "");
-
     this.userLoged();
-
   }
 
+  addWishlist(id: number) {
+    console.log("recebi o id a introduzir: " + id);
+    this.servLogin.user.wishlist?.push(id);
+    this.wishlistAddedPopup = true;
+
+    //Não testo se ja existe na wishlist porque caso já exista a unica estrela que mostra é o de remover da wishlist.
+  }
+
+  removeWishlist(id: number) {
+    this.servLogin.user.wishlist?.splice(this.servLogin.user.wishlist?.indexOf(id), 1);
+    //Não testo se ja existe na wishlist porque caso já exista a unica estrela que mostra é o de remover da wishlist.
+  }
+
+  closeWishlistPopUp() {
+    this.wishlistAddedPopup = !this.wishlistAddedPopup;
+  }
+
+  // Tests Area
   userLoged() {
-    console.log("user logado wishList:");
-    console.log(this.servLogin.user.wishlist);
-    console.log("user logado:");
-    console.log(this.servLogin.user);
-
-    // this.servLogin.user.wishlist?.includes();
+    // console.log("user logado wishList:");
+    // console.log(this.servLogin.user.wishlist);
+    // console.log("user logado:");
+    // console.log(this.servLogin.user);
   }
+  // Tests Area
 
-  wishList(id:number){
+  wishList(id: number) {
     console.log(this.servLogin.user.wishlist)
-    console.log(id)
-
-    console.log(this.servLogin.user.wishlist?.includes(id))
+    // console.log(id);
+    // console.log(this.servLogin.user.wishlist?.includes(id))
 
     if (this.servLogin.user.wishlist?.includes(id)) {
       return true
-    }else{
+    } else {
       return false;
     }
   }

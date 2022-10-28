@@ -16,9 +16,10 @@ export class ProdutsComponent implements OnInit {
   recPage: number = 6;
   productsList: Product[] = [];
   seeMoreButton: boolean = true;
-
   url: string[] = [];
   addUrl: string = "";
+
+  secoundImg: boolean = false;
 
 
   constructor(private servProd: ProductsserviceService, private router: Router) { }
@@ -142,12 +143,14 @@ export class ProdutsComponent implements OnInit {
     this.router.navigateByUrl(`/infoproducts/${id}`);
   }
 
-  showSecondImage(value:string){
+  showSecondImage() {
     console.log("hover")
+    // this.secoundImg=true;
   }
 
-  showFirstImage(value:string){
-    console.log("not hover")
+  showFirstImage() {
+    console.log("out")
+    this.secoundImg=false;
   }
 
 }

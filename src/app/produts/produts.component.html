@@ -35,7 +35,15 @@
                             <i class="far fa-star fa-lg"></i>
                             <i class="fas fa-star fa-lg"></i>
                         </div>
-                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage(product.foto_secundaria)" (mouseout)="showFirstImage(product.foto_principal)">
+                        <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()" (mouseout)="showFirstImage()">
+                        <!-- <img *ngIf="!secoundImg" [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()">
+
+                        <img *ngIf="secoundImg" [src]="'/assets/Imagens/'+product.foto_secundaria" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseout)="showFirstImage()"> -->
+
+                        <!-- <img [src]="toggleImg" [alt]="product.nome" (click)="showProductInfo(product.id)" (mouseover)="showSecondImage()" (mouseout)="showFirstImage()"> -->
+
+
+
 
                     </div>
                     <div class="formattext">

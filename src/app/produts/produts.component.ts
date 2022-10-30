@@ -159,11 +159,11 @@ export class ProdutsComponent implements OnInit {
 
     // console.log(this.recPage);
 
-    this.servProd.filterProducts(this.recPage, this.addUrl).subscribe(response => {
+    this.servProd.filterProducts(this.addUrl, this.recPage).subscribe(response => {
       this.productsList = response;
     });
 
-    this.servProd.filterProductsNew(this.addUrl).subscribe(response => {
+    this.servProd.filterProducts(this.addUrl).subscribe(response => {
       this.totalProducts = response.length;
 
       // console.log("total:produtos" + this.totalProducts);

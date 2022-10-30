@@ -1,5 +1,23 @@
-<div class="container">
-    <div class="conatinerbox">
+<div *ngIf="!wishlistShow" style="text-align: center;">
+    <div>Não tem produtos adicionados.</div>
+    <div>Clique <a routerLink="" routerLinkActive="active">aqui</a> para ir para a pagina principal</div>
+</div>
+<div *ngIf="wishlistShow">
+    <div *ngFor="let product of wishlist" class="container">
+        <div class="conatinerbox">
+            <div class="box"><img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome"></div>
+            <div class="box">
+                <div>{{product.marca}}</div>
+                <div>{{product.nome}}</div>
+                <div>{{product.preco}} €</div>
+            </div>
+            <div class="box">
+                <button mat-raised-button color="warn" (click)="removeFromWishlist(product.id)">Remover</button>
+            </div>
+        </div>
+
+
+        <!-- <div class="conatinerbox">
         <div class="box">imagem</div>
         <div class="box">
             <div>Texto 1</div>
@@ -7,10 +25,8 @@
             <div>Texto 2</div>
         </div>
         <div class="box">Remover</div>
-    </div>
-    <div class="conatinerbox">
-        <div class="box">imagem</div>
-        <div class="box">texto</div>
-        <div class="box">Remover</div>
+    </div> -->
+
+
     </div>
 </div>

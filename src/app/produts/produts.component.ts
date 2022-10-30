@@ -19,8 +19,9 @@ export class ProdutsComponent implements OnInit {
   seeMoreButton: boolean = true;
   url: string[] = [];
   addUrl: string = "";
-
   wishlistAddedPopup = false;
+
+  // srcImg : string = "";
 
 
   secoundImg: boolean = false;

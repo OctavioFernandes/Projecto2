@@ -20,20 +20,20 @@ export class WishlistComponent implements OnInit {
   }
 
   getWishlist() {
-    console.log("wishlist");
-    console.log(this.servLogin.user.wishlist?.length);
-    console.log(this.servLogin.user.wishlist?.length !== 0);
+    // console.log("wishlist");
+    // console.log(this.servLogin.user.wishlist?.length);
+    // console.log(this.servLogin.user.wishlist?.length !== 0);
 
     if (this.servLogin.user.wishlist?.length !== 0) {
       this.servProd.filterWishlist().subscribe(response => {
-        console.log("response");
-        console.log(response);  
+        // console.log("response");
+        // console.log(response);  
 
         this.wishlist = response;
         this.wishlistShow = true;
 
-        console.log("wishlist");
-        console.log(this.wishlist);
+        // console.log("wishlist");
+        // console.log(this.wishlist);
       });
     } else {
       this.wishlistShow = false;

@@ -53,6 +53,10 @@ export class LoginserviceService {
     return this.http.put<User>(`${this.urlAPI}/users/${id}`, user);
   }
 
+  updateWishlist(user : User, id : number) {
+    return this.http.put<User>(`${this.urlAPI}/users/${id}`, user);
+  }
+
 //octaviomgfernandes@gmail.com
 
 }

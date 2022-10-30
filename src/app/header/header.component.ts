@@ -93,6 +93,10 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
+    this.servLogin.updateWishlist(this.servLogin.user,this.servLogin.user.id!).subscribe(response=>{
+      console.log("user update")
+      console.log(response)
+    });
     this.servLogin.loged = false;
     this.router.navigateByUrl("");
   }

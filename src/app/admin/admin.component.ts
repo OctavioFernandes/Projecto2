@@ -51,7 +51,7 @@ export class AdminComponent implements OnInit {
         }
       }
 
-      console.log(this.productTypes)
+      // console.log(this.productTypes)
     });
   }
 
@@ -77,7 +77,7 @@ export class AdminComponent implements OnInit {
 
     this.servProd.filterProducts(filter, this.recPage).subscribe(response => {
       this.filterProducts = response;
-      console.log(this.filterProducts);
+      // console.log(this.filterProducts);
     });
   }
 

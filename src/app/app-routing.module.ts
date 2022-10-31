@@ -20,7 +20,7 @@ const routes: Routes = [
   { path: 'products', component: ProdutsComponent},
   { path: 'infoproducts', component: InfoproductComponent},
   { path: 'infoproducts/:id', component: InfoproductComponent},
-  { path: 'admin', component: AdminComponent },
+  { path: 'admin', component: AdminComponent, canActivate:[AdminguardService]},
 
   // canActivate:[AdminguardService]
 

@@ -64,10 +64,14 @@
 
         <div class="navbar-icons">
             <!-- loged -->
+
+            <div *ngIf="servLogin.loged && servLogin.user.admin" routerLink="admin" routerLinkActive="activa"><i class="fa-solid fa-unlock fa-lg" title="Administrador"></i></div>
+
+
             <div *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</div>
 
             <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i
-                    class="fa-regular fa-clipboard fa-lg"></i></div>
+                    class="fa-regular fa-clipboard fa-lg" title="Wishlist"></i></div>
 
             <div div routerLink="createprofile" routerLinkActive="router-link-active" *ngIf="servLogin.loged"
                 title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>

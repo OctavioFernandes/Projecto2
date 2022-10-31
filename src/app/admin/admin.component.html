@@ -1,1 +1,62 @@
-<p>admin works!</p>
+<h1 style="font-weight: bold; text-align: center;">Gestão de Produtos</h1>
+
+<div class="form">
+    <form [formGroup]="productForm" (ngSubmit)="insertProduct()">
+
+        <div class="container">
+
+            <div class="line">
+                <label for="">Produto:</label><input type="text" formControlName="nome">
+            </div>
+
+            <div class="line">
+                <label for="">Marca:</label><input type="text" formControlName="marca">
+            </div>
+
+            <div class="line">
+                <label for="">Tipo:</label>
+                <select formControlName="tipo_de_produto">
+
+                    <option default disabled>-- Selecionar um tipo de produto --</option>
+
+                    <option *ngFor="let type of productTypes" [ngValue]="type">{{type}}</option>
+
+                </select>
+            </div>
+
+            <div class="line">
+                <label for="">Cor:</label><input type="text" formControlName="cor">
+            </div>
+
+            <div class="line">
+                <label for="">Preço:</label><input type="text" formControlName="preco">
+            </div>
+
+            <div class="line">
+                <label for="">Descrição:</label> <textarea formControlName="descricao"></textarea>
+            </div>
+
+            <div class="toggle">
+                
+                <label class="switch">
+                    <input type="checkbox" formControlName="destaque">
+                    <span class="slider round"></span>
+                </label>
+                <label style="margin: 5px; padding-top:5px;">Destaque</label>
+                
+                <!-- <input type="checkbox" formControlName="destaque"> -->
+            </div>
+
+<!--             
+                <label class="switch">
+                    <input type="checkbox">
+                    <span class="slider round"></span>
+                </label> -->
+            <!-- <select name="" id=""></select> -->
+
+        </div>
+    </form>
+</div>
+
+<pre>{{productForm.value | json}}</pre>
+<pre>valido : {{productForm.valid | json}}</pre>

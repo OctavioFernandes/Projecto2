@@ -45,7 +45,9 @@ export class CreateprofileComponent implements OnInit {
 
       wishlist: new FormControl([]),
 
-      active: new FormControl(false)
+      active: new FormControl(false),
+
+      admin: new FormControl(false)
 
     });
 
@@ -60,7 +62,8 @@ export class CreateprofileComponent implements OnInit {
         codigoPostal: this.servLogin.user.codigoPostal,
         pais: this.servLogin.user.pais,
         wishlist: this.servLogin.user.wishlist,
-        active: this.servLogin.user.active
+        active: this.servLogin.user.active, 
+        admin: this.servLogin.user.admin
       });
       this.insertMode = false;
       this.user = this.servLogin.user;
@@ -105,6 +108,10 @@ export class CreateprofileComponent implements OnInit {
           this.servLogin.insertUser(this.formProfile.value)
             .subscribe(response => {
               this.validateUserPopUp = true;
+              this.servLogin.user = {id: this.servLogin.user.id, ...this.formProfile.value};
+
+              // {id: this.idAAlterar, ...this.formCarros.value}
+
             });
         } else {
           this.emaiDbExist = true;
@@ -118,6 +125,7 @@ export class CreateprofileComponent implements OnInit {
           this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
             .subscribe(response => {
               this.validateUserPopUp = true;
+              this.servLogin.user = {id: this.servLogin.user.id, ...this.formProfile.value};
             });
         } else {
           this.emaiDbExist = true;

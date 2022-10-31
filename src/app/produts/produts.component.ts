@@ -33,7 +33,7 @@ export class ProdutsComponent implements OnInit {
     this.loadColorsAndTipes();
     this.getPaginateProducts();
     this.filterProducts("StartPage", "");
-    this.userLoged();
+    // this.userLoged();
   }
 
   addWishlist(id: number) {

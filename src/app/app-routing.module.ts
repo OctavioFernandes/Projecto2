@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminComponent } from './admin/admin.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
+import { AdminguardService } from './header/adminguard.service';
 import { LogedguardService } from './header/logedguard.service';
 import { HomeComponent } from './home/home.component';
 import { InfoproductComponent } from './infoproduct/infoproduct.component';
@@ -18,6 +20,9 @@ const routes: Routes = [
   { path: 'products', component: ProdutsComponent},
   { path: 'infoproducts', component: InfoproductComponent},
   { path: 'infoproducts/:id', component: InfoproductComponent},
+  { path: 'admin', component: AdminComponent },
+
+  // canActivate:[AdminguardService]
 
 
   { path: '**', component: PagenotfoundComponent }

@@ -7,5 +7,6 @@ export type User={
     codigoPostal: string,
     pais: string,
     wishlist?: number[],
-    active:boolean
+    active:boolean,
+    admin:boolean
 }

@@ -69,8 +69,14 @@ export class HeaderComponent implements OnInit {
 
               // this.userloged.emit(this.user[0]);
               this.servLogin.user=this.user[0];
+              
+              console.log("user admin ao logar")
+              console.log(this.servLogin.user.admin)
+
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;
+              this.servLogin.admin = this.servLogin.user.admin;
+
               this.router.navigateByUrl("");
               setTimeout(() => this.loginPopUp = false, 1000);
               setTimeout(() => this.statusMsg = "", 1000);
@@ -93,9 +99,14 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.servLogin.updateWishlist(this.servLogin.user,this.servLogin.user.id!).subscribe(response=>{
-      console.log("user update")
-      console.log(response)
+    // console.log("this.servLogin.user");
+    // console.log(this.servLogin.user);
+
+
+    this.servLogin.editUser(this.servLogin.user,this.servLogin.user.id!).subscribe(response=>{
+      // console.log(this.servLogin.user.wishlist)
+      // console.log("user update")
+      // console.log(response)
     });
     this.servLogin.loged = false;
     this.router.navigateByUrl("");

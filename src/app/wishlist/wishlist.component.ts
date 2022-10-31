@@ -42,8 +42,7 @@ export class WishlistComponent implements OnInit {
 
   removeFromWishlist(id:number){
     // this.servLogin.user.wishlist?.indexOf(id);
-    console.log("id remover"+id)
-    console.log()
+    // console.log("id remover"+id)
     this.servLogin.user.wishlist?.splice(this.servLogin.user.wishlist?.indexOf(id),1)
     this.getWishlist();
   }

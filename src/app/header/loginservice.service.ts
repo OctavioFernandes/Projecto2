@@ -13,6 +13,8 @@ export class LoginserviceService {
   loged : boolean = false;
   user! : User;
 
+  admin : boolean = false;
+
   // testes Area
 
   // loged : boolean = true;
@@ -56,6 +58,11 @@ export class LoginserviceService {
   updateWishlist(user : User, id : number) {
     return this.http.put<User>(`${this.urlAPI}/users/${id}`, user);
   }
+
+  // updateWishlist(wishList : number[], id : number) {
+  //   console.log("patch");
+  //   return this.http.patch<User>(`${this.urlAPI}/users/${id}`, (`"wishlist":${wishList}`));
+  // }
 
 //octaviomgfernandes@gmail.com
 

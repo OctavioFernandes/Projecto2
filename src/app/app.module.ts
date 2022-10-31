@@ -19,6 +19,7 @@ import { CreateprofileComponent } from './createprofile/createprofile.component'
 import { FooterComponent } from './footer/footer.component';
 import { ProdutsComponent } from './produts/produts.component';
 import { InfoproductComponent } from './infoproduct/infoproduct.component';
+import { AdminComponent } from './admin/admin.component';
 
 
 @NgModule({
@@ -33,6 +34,7 @@ import { InfoproductComponent } from './infoproduct/infoproduct.component';
     FooterComponent,
     ProdutsComponent,
     InfoproductComponent,
+    AdminComponent,
   ],
   imports: [
     BrowserModule,

@@ -59,16 +59,19 @@ export class ProductsserviceService {
     return this.http.get<Product[]>(`${this.urlAPI}?${this.addUrl}`);
   }
 
+  insertProduct(product : Product){
+    return this.http.post<Product>(this.urlAPI, product);
+  }
+
+  deleteProduct(id:number){
+    return this.http.delete<Product>(`${this.urlAPI}/${id}`);
+  }
+
   //http://localhost:3000/products?tipo_de_produto=Calças&cor=Azul&_limit=100
 
   //http://localhost:3000/products?limit=6&tipo_de_produto=Calças&cor=Azul&cor=Laranja&tipo_de_produto=Casaco
 
 
-  // pesquisaPhotos(pesquisa : string, initial : number, recPage: number) {
-  //   return this.http.get<Photo[]>(`${this.urlAPI}?title_like=${pesquisa}&_start=${initial}&_limit=${recPage}`, { observe : 'response' })
-  //     .pipe(
-  //       catchError(this.processaErro)
-  //     );
-  // }
+
 
 }

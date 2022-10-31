@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
 
 @Component({
@@ -10,8 +11,10 @@ import { ProductsserviceService } from '../shared/productsservice.service';
 export class AdminComponent implements OnInit {
 
   productForm!: FormGroup;
-
   productTypes: string[] = [];
+
+  filterProducts: Product[] = [];
+  recPage:number = 10;
 
   constructor(private servProd: ProductsserviceService) { }
 
@@ -31,6 +34,9 @@ export class AdminComponent implements OnInit {
     });
 
     this.loadTipes();
+
+    this.getProducts("");
+
   }
 
   loadTipes() {
@@ -47,28 +53,37 @@ export class AdminComponent implements OnInit {
 
   insertProduct(){
 
+    console.log(this.productForm);
+
+    if (this.productForm.valid) {
+
+      this.servProd.insertProduct(this.productForm.value).subscribe(response=>{
+        // console.log("inserido produto");
+        this.productForm.reset();
+        // console.log(this.productForm);
+      })      
+    } 
+    // else {      
+    // }  
+  }
+
+  getProducts(searchedContent:string){
+
+    let filter = `&nome_like=${searchedContent.trim()}`;
+
+    this.servProd.filterProducts(filter, this.recPage).subscribe(response=>{
+     this.filterProducts = response;
+     console.log(this.filterProducts);
+    });
+
+  }
+
+
+  deleteProduct(id : number){
+    this.servProd.deleteProduct(id).subscribe(resposnse=>{
+      this.getProducts("");
+    });
   }
 
 
 }
-
-// this.formProfile = new FormGroup({
-//   nome: new FormControl('', [Validators.required]),
-
-//   email: new FormControl('', [Validators.required, Validators.email]),
-
-//   password: new FormControl('', [Validators.required, Validators.pattern('(?=[A-Za-z0-9@#$%^&+!=]+$)^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@#$%^&+!=])(?=.{8,}).*$')]),
-
-//   morada: new FormControl('', [Validators.required]),
-
-//   codigoPostal: new FormControl('', [Validators.required, Validators.minLength(8)]),
-
-//   pais: new FormControl('', [Validators.required]),
-
-//   wishlist: new FormControl([]),
-
-//   active: new FormControl(false),
-
-//   admin: new FormControl(false)
-
-// });

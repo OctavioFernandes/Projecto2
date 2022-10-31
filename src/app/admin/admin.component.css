@@ -29,6 +29,7 @@
 
 .form {
     width: 500px;
+    margin-bottom: 40px;
 }
 
 
@@ -100,3 +101,70 @@ input:checked+.slider:before {
     align-items: center;
     margin-left: 80px;
 }
+.submitbtn{
+    width: 200px;
+    margin: 5px;
+}
+
+input.ng-touched.ng-invalid, select.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid  {
+    background-color : lightcoral;
+}
+
+
+.searchbox{
+    display: flex;
+    align-items: center;
+    width: 800px;
+    margin: 5px;
+    margin-bottom: 30px;
+}
+
+.searchbox > *{
+    margin: 5px;
+}
+
+.searchbox input{
+    width: 250px;
+    height: 30px;
+}
+
+.searchtbtn{
+    width: 150px;
+}
+
+.tablebox{
+    margin: 5px;
+    width: 800px;
+    border-collapse: collapse;
+}
+
+.tablebox, .tablebox th, .tablebox td {
+    border: 1px solid #000;
+}
+.tablebox th, .tablebox td {
+    padding: 2px 2px;
+    text-align: center;
+}
+.tablebox thead tr {
+    background-color: black;
+    color: white;
+}
+
+.tablebox tbody tr:nth-child(odd){
+    background-color: lightgray;
+}
+
+.tablebox img{
+    width: 100px;
+    height: 150px;
+}
+
+#tableimg{
+    width: 100px;
+    height: 150px;
+}
+
+.deletebtn{
+    width: 5px;
+}
+

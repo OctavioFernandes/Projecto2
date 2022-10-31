@@ -114,8 +114,8 @@ export class HeaderComponent implements OnInit {
 
   showOptions(){
     const parent = document.getElementById('dropdowncontainer');
-    parent!.style.height = '320px';
-    parent!.style.borderBottom = '2.5px solid grey';
+    parent!.style.height = '300px';
+    // parent!.style.borderBottom = '2.5px solid grey';
   }
 
   hideOptions(){

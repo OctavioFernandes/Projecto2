@@ -9,6 +9,7 @@ import { InfoproductComponent } from './infoproduct/infoproduct.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProdutsComponent } from './produts/produts.component';
 import { ProfileComponent } from './profile/profile.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
 const routes: Routes = [
@@ -20,9 +21,9 @@ const routes: Routes = [
   { path: 'products', component: ProdutsComponent},
   { path: 'infoproducts', component: InfoproductComponent},
   { path: 'infoproducts/:id', component: InfoproductComponent},
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent, canActivate:[AdminguardService]},
 
-  // canActivate:[AdminguardService]
+  { path: 'shoppingcart', component: ShoppingcartComponent, canActivate:[LogedguardService]},
 
 
   { path: '**', component: PagenotfoundComponent }

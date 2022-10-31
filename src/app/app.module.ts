@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 import { ProdutsComponent } from './produts/produts.component';
 import { InfoproductComponent } from './infoproduct/infoproduct.component';
 import { AdminComponent } from './admin/admin.component';
+import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { AdminComponent } from './admin/admin.component';
     ProdutsComponent,
     InfoproductComponent,
     AdminComponent,
+    ShoppingcartComponent,
   ],
   imports: [
     BrowserModule,

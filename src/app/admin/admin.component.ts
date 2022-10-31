@@ -107,8 +107,8 @@ export class AdminComponent implements OnInit {
   }
 
   validateUser(user: User) {
-    console.log("recebi user");
-    console.log(user);
+    // console.log("recebi user");
+    // console.log(user);
 
     let userValid= {
         nome: user.nome,
@@ -123,7 +123,7 @@ export class AdminComponent implements OnInit {
         admin: user.admin
       }
 
-      console.log(userValid);
+      // console.log(userValid);
 
     this.servLoged.activateUser(userValid, user.id!).subscribe(response=>{
       console.log(response);

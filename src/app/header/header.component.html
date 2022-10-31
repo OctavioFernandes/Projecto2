@@ -2,7 +2,7 @@
     <nav class="navbar-menu">
         <div class="boxcontainer" (mouseover)="showOptions()" (mouseout)="hideOptions()">
             <div class="dropdown">
-                <div>Homem</div>
+                <div >Homem</div>
                 <div class="dropdown-content">
                     <div>Casacos</div>
                     <div>Camisas</div>
@@ -20,7 +20,7 @@
 
             <div>|</div>
 
-            <div class="dropdown">
+            <div class="dropdown" (mouseover)="showOptions()" (mouseout)="hideOptions()">
                 <div>Mulher</div>
                 <div class="dropdown-content">
                     <div>Vestidos</div>
@@ -39,7 +39,7 @@
             <img src="\assets\Imagens\logo.png" alt="Logo image" routerLink="" routerLinkActive="activa"
                 [routerLinkActiveOptions]="{ exact : true }">
 
-            <div class="dropdown">
+            <div class="dropdown" (mouseover)="showOptions()" (mouseout)="hideOptions()">
                 <div>Criança</div>
                 <div class="dropdown-content">
                     <div>Menina | 6-14 Anos</div>
@@ -52,7 +52,7 @@
 
             <div>|</div>
 
-            <div class="dropdown">
+            <div class="dropdown" (mouseover)="showOptions()" (mouseout)="hideOptions()">
                 <div>Acessórios</div>
                 <div class="dropdown-content">
                     <div>Malas</div>
@@ -65,8 +65,9 @@
         <div class="navbar-icons">
             <!-- loged -->
 
-            <div *ngIf="servLogin.loged && servLogin.user.admin" routerLink="admin" routerLinkActive="activa"><i class="fa-solid fa-unlock fa-lg" title="Administrador"></i></div>
+            <div *ngIf="servLogin.loged && servLogin.user.admin" routerLink="admin" routerLinkActive="activa"><i class="fa-solid fa-unlock" title="Administrador"></i></div>
 
+            <div routerLink="shoppingcart" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i class="fa-solid fa-cart-shopping" title="Shopping Cart"></i></div>
 
             <div *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</div>
 

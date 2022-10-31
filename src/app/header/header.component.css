@@ -87,7 +87,7 @@
     height: 230px;
     /* width: 100%; */
     overflow: auto;
-    border-bottom:3px solid grey;
+    /* border-bottom:3px solid grey; */
     opacity: 0.5;
     z-index: 2;
 }

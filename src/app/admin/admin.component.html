@@ -1,5 +1,3 @@
-<div *ngIf="servLoged.loged && servLoged.admin"></div>
-
 <h1 style="font-weight: bold; margin: 5px;">Gestão de Produtos</h1>
 
 <div class="form">
@@ -8,17 +6,17 @@
         <div class="container">
 
             <div class="line">
-                <label >Produto:</label><input type="text" formControlName="nome">
+                <label>Produto:</label><input type="text" formControlName="nome">
             </div>
 
 
 
             <div class="line">
-                <label >Marca:</label><input type="text" formControlName="marca">
+                <label>Marca:</label><input type="text" formControlName="marca">
             </div>
 
             <div class="line">
-                <label >Tipo:</label>
+                <label>Tipo:</label>
                 <select formControlName="tipo_de_produto">
 
                     <option default disabled>-- Selecionar um tipo de produto --</option>
@@ -29,19 +27,19 @@
             </div>
 
             <div class="line">
-                <label >Cor:</label><input type="text" formControlName="cor">
+                <label>Cor:</label><input type="text" formControlName="cor">
             </div>
 
             <div class="line">
-                <label >Preço:</label><input type="number" formControlName="preco">
+                <label>Preço:</label><input type="number" formControlName="preco">
             </div>
 
             <div class="line">
-                <label >Descrição:</label> <textarea formControlName="descricao"></textarea>
+                <label>Descrição:</label> <textarea formControlName="descricao"></textarea>
             </div>
 
             <div class="toggle">
-                
+
                 <label class="switch">
                     <input type="checkbox" formControlName="destaque">
                     <span class="slider round"></span>
@@ -49,11 +47,14 @@
                 <label style="margin: 5px; padding-top:5px;">Destaque</label>
             </div>
 
-            <small *ngIf="!productForm.valid" style="margin: 5px;">*Todos os campos são de preenchimento obrigatório</small>
+            <small *ngIf="!productForm.valid" style="margin: 5px;">*Todos os campos são de preenchimento
+                obrigatório</small>
 
-            <button *ngIf="productForm.valid" mat-raised-button color="primary" class="submitbtn">Inserir produto</button>
+            <button *ngIf="productForm.valid" mat-raised-button color="primary" class="submitbtn">Inserir
+                produto</button>
 
-            <button *ngIf="!productForm.valid" mat-raised-button color="primary" class="submitbtn" disabled>Inserir produto</button>            
+            <button *ngIf="!productForm.valid" mat-raised-button color="primary" class="submitbtn" disabled>Inserir
+                produto</button>
 
         </div>
     </form>
@@ -61,54 +62,89 @@
 
 <div class="searchbox">
     <label>Pesquisa:</label>
-    <input type="text" #searchedContent value="aa" >
-    <button mat-raised-button color="primary" class="searchtbtn" (click)="getProducts(searchedContent.value)">Pesquisa</button>
-    <button mat-raised-button color="primary" class="searchtbtn" (click)="searchedContent.value=''; getProducts(searchedContent.value)">Limpar pesquisa</button>
+    <input type="text" #searchedContent value="aa">
+    <button mat-raised-button color="primary" class="searchtbtn"
+        (click)="getProducts(searchedContent.value)">Pesquisa</button>
+    <button mat-raised-button color="primary" class="searchtbtn"
+        (click)="searchedContent.value=''; getProducts(searchedContent.value)">Limpar pesquisa</button>
 </div>
 
 <h3 style="font-weight: bold; margin: 10px 5px;">Lista de Produtos</h3>
 
-<div>
-    <table  class="tablebox">
-        <thead>
-            <tr>
-                <th>Foto</th>
-                <th>Marca</th>
-                <th>Produto</th>
-                <th>Tipo produto</th>
-                <th>Cor</th>
-                <th>Preço</th>
-                <th>Descrição</th>
-                <th>Destaque</th>
-                <th>Operações</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr *ngFor="let prod of filterProducts">
-                <td id="tableimg"><img [src]="'/assets/Imagens/' + prod.foto_principal" [alt]="prod.foto_principal"></td>
-                <td>{{prod.marca}}</td>
-                <td>{{prod.nome}}</td>
-                <td>{{prod.tipo_de_produto}}</td>
-                <td>{{prod.cor}}</td>
-                <td>{{prod.preco}} €</td>
-                <td>{{prod.descricao}}</td>
-                <td>{{ prod.destaque ? '&#10004;' : '&#10005;' }}</td>
-                <td><button mat-raised-button color="primary" class="deletebtn" (click)="showDeletePopup()">x</button>
-                    <div *ngIf="validateDeletePopUp" class="user-delete-popup">
-                        <div class="user-delete-box">
-                            <div>Tem a certeza que pretende eliminar o produto?</div>
-                            <button mat-raised-button color="warn" (click)="deleteProduct(prod.id, searchedContent.value)">Sim</button>
-                            <!-- <button mat-raised-button color="warn" (click)="closeUserPopUp()">Sim</button> -->
-                            <button mat-raised-button color="warn" (click)="hideDeletePopup()">Não</button>
-                        </div>
+<table class="tablebox">
+    <thead>
+        <tr>
+            <th>Foto</th>
+            <th>Marca</th>
+            <th>Produto</th>
+            <th>Tipo produto</th>
+            <th>Cor</th>
+            <th>Preço</th>
+            <th>Descrição</th>
+            <th>Destaque</th>
+            <th>Operações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let prod of filterProducts">
+            <td id="tableimg"><img [src]="'/assets/Imagens/' + prod.foto_principal" [alt]="prod.foto_principal"></td>
+            <td>{{prod.marca}}</td>
+            <td>{{prod.nome}}</td>
+            <td>{{prod.tipo_de_produto}}</td>
+            <td>{{prod.cor}}</td>
+            <td>{{prod.preco}} €</td>
+            <td>{{prod.descricao}}</td>
+            <td>{{ prod.destaque ? '&#10004;' : '&#10005;' }}</td>
+            <td><button mat-raised-button color="primary" class="deletebtn" (click)="showDeletePopup()">x</button>
+                <div *ngIf="validateDeletePopUp" class="user-delete-popup">
+                    <div class="user-delete-box">
+                        <div>Tem a certeza que pretende eliminar o produto?</div>
+                        <button mat-raised-button color="warn"
+                            (click)="deleteProduct(prod.id, searchedContent.value)">Sim</button>
+                        <!-- <button mat-raised-button color="warn" (click)="closeUserPopUp()">Sim</button> -->
+                        <button mat-raised-button color="warn" (click)="hideDeletePopup()">Não</button>
                     </div>
-                </td>
-            </tr>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
 
-        </tbody>
-    </table>
-</div>
+
+<h3 style="font-weight: bold; margin: 20px 5px;">Lista de utilizadores</h3>
+
+<table class="tablebox">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>User válido</th>
+            <th>Validar</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of usersList">
+            <td>{{user.nome}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.active ? '&#10004;' : '&#10005;'}}</td>
+            <td *ngIf="!user.active">
+                <i class="fa-solid fa-circle-check" style="color: green; cursor: pointer;" (click)="validateUser(user)"></i>
+            </td>
+            <td *ngIf="user.active"></td>
+        </tr>
+    </tbody>
+</table>
+
+<!-- <div class="usercontainer">
+    <div class="userbox" *ngFor="let user of usersList">
+        <div class="box">{{user.nome}}</div>
+        <div class="box">{{user.email}}</div>
+        <div class="box">{{user.active}}</div>        
+        <div></div>
+    </div>
+</div> -->
+
+
 
 <pre>{{productForm.value | json}}</pre>
 <pre>valido : {{productForm.valid | json}}</pre>
-

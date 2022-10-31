@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { LoginserviceService } from '../header/loginservice.service';
 import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
+import { User } from '../shared/user';
 
 @Component({
   selector: 'app-admin',
@@ -17,9 +18,11 @@ export class AdminComponent implements OnInit {
   filterProducts: Product[] = [];
   recPage: number = 10;
 
+  usersList: User[] = [];
+
   validateDeletePopUp: boolean = false;
 
-  constructor(private servProd: ProductsserviceService, protected servLoged: LoginserviceService) { }
+  constructor(private servProd: ProductsserviceService, private servLoged: LoginserviceService) { }
 
   ngOnInit(): void {
 
@@ -37,9 +40,8 @@ export class AdminComponent implements OnInit {
     });
 
     this.loadTipes();
-
     this.getProducts("");
-
+    this.getUsers()
   }
 
   loadTipes() {
@@ -95,6 +97,39 @@ export class AdminComponent implements OnInit {
 
   hideDeletePopup() {
     this.validateDeletePopUp = false;
+  }
+
+  getUsers() {
+
+    this.servLoged.getAllUsers().subscribe(response => {
+      this.usersList = response;
+    });
+  }
+
+  validateUser(user: User) {
+    console.log("recebi user");
+    console.log(user);
+
+    let userValid= {
+        nome: user.nome,
+        email: user.email,
+        password: user.password,
+        morada: user.morada,
+        codigoPostal: user.codigoPostal,
+        pais: user.pais,
+        wishlist: user.wishlist,
+        active: true,
+        id: 2,
+        admin: user.admin
+      }
+
+      console.log(userValid);
+
+    this.servLoged.activateUser(userValid, user.id!).subscribe(response=>{
+      console.log(response);
+      this.getUsers();
+    })
+
   }
 
 

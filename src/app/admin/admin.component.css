@@ -96,22 +96,25 @@ input:checked+.slider:before {
     border-radius: 50%;
 }
 
-.toggle{
+.toggle {
     display: flex;
     align-items: center;
     margin-left: 80px;
 }
-.submitbtn{
+
+.submitbtn {
     width: 200px;
     margin: 5px;
 }
 
-input.ng-touched.ng-invalid, select.ng-touched.ng-invalid, textarea.ng-touched.ng-invalid  {
-    background-color : lightcoral;
+input.ng-touched.ng-invalid,
+select.ng-touched.ng-invalid,
+textarea.ng-touched.ng-invalid {
+    background-color: lightcoral;
 }
 
 
-.searchbox{
+.searchbox {
     display: flex;
     align-items: center;
     width: 800px;
@@ -119,68 +122,73 @@ input.ng-touched.ng-invalid, select.ng-touched.ng-invalid, textarea.ng-touched.n
     margin-bottom: 30px;
 }
 
-.searchbox > *{
+.searchbox>* {
     margin: 5px;
 }
 
-.searchbox input{
+.searchbox input {
     width: 250px;
     height: 30px;
 }
 
-.searchtbtn{
+.searchtbtn {
     width: 150px;
 }
 
-.tablebox{
+.tablebox {
     margin: 5px;
     width: 800px;
     border-collapse: collapse;
 }
 
-.tablebox, .tablebox th, .tablebox td {
+.tablebox,
+.tablebox th,
+.tablebox td {
     border: 1px solid #000;
 }
-.tablebox th, .tablebox td {
+
+.tablebox th,
+.tablebox td {
     padding: 2px 2px;
     text-align: center;
 }
+
 .tablebox thead tr {
     background-color: black;
     color: white;
 }
 
-.tablebox tbody tr:nth-child(odd){
+.tablebox tbody tr:nth-child(odd) {
     background-color: lightgray;
 }
 
-.tablebox img{
+.tablebox img {
     width: 100px;
     height: 150px;
 }
 
-#tableimg{
+#tableimg {
     width: 100px;
     height: 150px;
 }
 
-.deletebtn{
+.deletebtn {
     width: 5px;
 }
 
 
-.user-delete-popup{
+.user-delete-popup {
     display: block;
     background-color: rgba(0, 0, 0, 0.1);
-    position:fixed;
+    position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
     right: 0;
     z-index: 2;
-  }
-  
-  .user-delete-box{
+}
+
+.user-delete-box {
     position: relative;
     top: 200px;
     left: 50%;
@@ -192,13 +200,31 @@ input.ng-touched.ng-invalid, select.ng-touched.ng-invalid, textarea.ng-touched.n
     border-radius: 5px;
     padding: 20px;
     text-align: center;
-  }
-  
-  .user-delete-box div{
+}
+
+.user-delete-box div {
     padding-top: 10px;
     padding-bottom: 20px;
-  }
+}
 
-.user-delete-box button{
+.user-delete-box button {
     margin: 5px;
+}
+
+.usercontainer {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+}
+
+.userbox {
+    display: flex;
+    align-items: center;
+}
+.box{
+    border: 1px solid black;
+    padding: 5px;
+    width: 300px;
+    margin: 0.2px;
+    text-align: center;
 }

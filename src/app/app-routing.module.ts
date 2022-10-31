@@ -22,7 +22,6 @@ const routes: Routes = [
   { path: 'infoproducts', component: InfoproductComponent},
   { path: 'infoproducts/:id', component: InfoproductComponent},
   { path: 'admin', component: AdminComponent, canActivate:[AdminguardService]},
-
   { path: 'shoppingcart', component: ShoppingcartComponent, canActivate:[LogedguardService]},
 
 

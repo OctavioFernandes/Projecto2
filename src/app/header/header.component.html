@@ -72,18 +72,18 @@
             <div *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</div>
 
             <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i
-                    class="fa-regular fa-clipboard fa-lg" title="Wishlist"></i></div>
+                    class="fa-regular fa-clipboard" title="Wishlist"></i></div>
 
             <div div routerLink="createprofile" routerLinkActive="router-link-active" *ngIf="servLogin.loged"
-                title="Perfil"><i class="fa-regular fa-user fa-lg"></i></div>
+                title="Perfil"><i class="fa-regular fa-user"></i></div>
 
-            <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket fa-lg"
+            <div *ngIf="servLogin.loged" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket"
                     (click)="logout()"></i></div>
             <!-- no loged -->
             <div routerLink="createprofile" routerLinkActive="activa" *ngIf="!servLogin.loged" title="Registar"><i
-                    class="fa-solid fa-user-plus fa-lg"></i></div>
+                    class="fa-solid fa-user-plus"></i></div>
             <div *ngIf="!servLogin.loged" title="Iniciar Sessão" (click)="loginPopUpLoginShow()"><i
-                    class="fa-solid fa-arrow-right-to-bracket fa-lg"></i></div>
+                    class="fa-solid fa-arrow-right-to-bracket"></i></div>
         </div>
     </nav>
 </nav>

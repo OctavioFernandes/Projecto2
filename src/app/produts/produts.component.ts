@@ -63,7 +63,7 @@ export class ProdutsComponent implements OnInit {
   // Tests Area
 
   wishList(id: number) {
-    console.log(this.servLogin.user.wishlist)
+    // console.log(this.servLogin.user.wishlist)
     // console.log(id);
     // console.log(this.servLogin.user.wishlist?.includes(id))
 
@@ -193,6 +193,14 @@ export class ProdutsComponent implements OnInit {
   showFirstImage() {
     // console.log("out")
     this.secoundImg = false;
+  }
+
+  addShoppingCart(id : number){
+
+    if (!this.servProd.shoppingCart.includes(id)) {
+      this.servProd.shoppingCart.push(id);
+    }    
+    console.log(this.servProd.shoppingCart);
   }
 
 }

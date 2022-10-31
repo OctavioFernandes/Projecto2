@@ -36,11 +36,15 @@
                         <!-- *ngIf="servLogin.loged" -->
                         <div *ngIf="servLogin.loged" class="wishlist">
 
+                            <i class="fa-solid fa-cart-shopping fa-lg" title="Adicionar ao carrinho" (click)="addShoppingCart(product.id)"></i>
+
                             <i (click)="addWishlist(product.id)" *ngIf="!wishList(product.id)"
-                                class="far fa-star fa-lg"></i>
+                                class="far fa-star fa-lg" title="Adicionar a Wishlist"></i>
 
                             <i (click)="removeWishlist(product.id)" *ngIf="wishList(product.id)"
-                                class="fas fa-star fa-lg"></i>
+                                class="fas fa-star fa-lg" title="Remover da Wishlist"></i>
+
+                            
 
                             <!-- Teste wish list com ngFor -->
 

@@ -28,7 +28,8 @@ export class LoginserviceService {
   //   pais: "Portugal",
   //   wishlist: [1,3,4],
   //   "active": true,
-  //   "id": 2
+  //   "id": 2,
+  //   admin:true
   // }
   
   // testes Area

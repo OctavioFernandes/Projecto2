@@ -168,3 +168,37 @@ input.ng-touched.ng-invalid, select.ng-touched.ng-invalid, textarea.ng-touched.n
     width: 5px;
 }
 
+
+.user-delete-popup{
+    display: block;
+    background-color: rgba(0, 0, 0, 0.1);
+    position:fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
+  }
+  
+  .user-delete-box{
+    position: relative;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 85px;
+    background-color: white;
+    z-index: 3;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .user-delete-box div{
+    padding-top: 10px;
+    padding-bottom: 20px;
+  }
+
+.user-delete-box button{
+    margin: 5px;
+}

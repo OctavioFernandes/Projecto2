@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { LoginserviceService } from '../header/loginservice.service';
 import { Product } from '../shared/product';
 import { ProductsserviceService } from '../shared/productsservice.service';
 
@@ -14,9 +15,11 @@ export class AdminComponent implements OnInit {
   productTypes: string[] = [];
 
   filterProducts: Product[] = [];
-  recPage:number = 10;
+  recPage: number = 10;
 
-  constructor(private servProd: ProductsserviceService) { }
+  validateDeletePopUp: boolean = false;
+
+  constructor(private servProd: ProductsserviceService, protected servLoged: LoginserviceService) { }
 
   ngOnInit(): void {
 
@@ -45,44 +48,53 @@ export class AdminComponent implements OnInit {
       for (let index = 0; index < response.length; index++) {
         if (!this.productTypes.includes(response[index].tipo_de_produto)) {
           this.productTypes.push(response[index].tipo_de_produto);
-        }}
+        }
+      }
 
-        console.log(this.productTypes)
+      console.log(this.productTypes)
     });
   }
 
-  insertProduct(){
+  insertProduct() {
 
     console.log(this.productForm);
 
     if (this.productForm.valid) {
 
-      this.servProd.insertProduct(this.productForm.value).subscribe(response=>{
+      this.servProd.insertProduct(this.productForm.value).subscribe(response => {
         // console.log("inserido produto");
         this.productForm.reset();
         // console.log(this.productForm);
-      })      
-    } 
+      })
+    }
     // else {      
     // }  
   }
 
-  getProducts(searchedContent:string){
+  getProducts(searchedContent: string) {
 
     let filter = `&nome_like=${searchedContent.trim()}`;
 
-    this.servProd.filterProducts(filter, this.recPage).subscribe(response=>{
-     this.filterProducts = response;
-     console.log(this.filterProducts);
+    this.servProd.filterProducts(filter, this.recPage).subscribe(response => {
+      this.filterProducts = response;
+      console.log(this.filterProducts);
     });
-
   }
 
 
-  deleteProduct(id : number){
-    this.servProd.deleteProduct(id).subscribe(resposnse=>{
-      this.getProducts("");
+  deleteProduct(id: number, searchedContent: string) {
+    this.servProd.deleteProduct(id).subscribe(response => {
+      this.getProducts(searchedContent);
+      this.validateDeletePopUp = false;
     });
+  }
+
+  showDeletePopup() {
+    this.validateDeletePopUp = true;
+  }
+
+  hideDeletePopup() {
+    this.validateDeletePopUp = false;
   }
 
 

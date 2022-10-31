@@ -1,3 +1,5 @@
+<div *ngIf="servLoged.loged && servLoged.admin"></div>
+
 <h1 style="font-weight: bold; margin: 5px;">Gestão de Produtos</h1>
 
 <div class="form">
@@ -47,7 +49,7 @@
                 <label style="margin: 5px; padding-top:5px;">Destaque</label>
             </div>
 
-            <small *ngIf="!productForm.valid" style="margin: 5px;">*Todos os campos saõ de preenchimento obrigatório</small>
+            <small *ngIf="!productForm.valid" style="margin: 5px;">*Todos os campos são de preenchimento obrigatório</small>
 
             <button *ngIf="productForm.valid" mat-raised-button color="primary" class="submitbtn">Inserir produto</button>
 
@@ -91,7 +93,16 @@
                 <td>{{prod.preco}} €</td>
                 <td>{{prod.descricao}}</td>
                 <td>{{ prod.destaque ? '&#10004;' : '&#10005;' }}</td>
-                <td><button mat-raised-button color="primary" class="deletebtn" (click)="deleteProduct(prod.id)">x</button></td>
+                <td><button mat-raised-button color="primary" class="deletebtn" (click)="showDeletePopup()">x</button>
+                    <div *ngIf="validateDeletePopUp" class="user-delete-popup">
+                        <div class="user-delete-box">
+                            <div>Tem a certeza que pretende eliminar o produto?</div>
+                            <button mat-raised-button color="warn" (click)="deleteProduct(prod.id, searchedContent.value)">Sim</button>
+                            <!-- <button mat-raised-button color="warn" (click)="closeUserPopUp()">Sim</button> -->
+                            <button mat-raised-button color="warn" (click)="hideDeletePopup()">Não</button>
+                        </div>
+                    </div>
+                </td>
             </tr>
 
         </tbody>
@@ -100,3 +111,4 @@
 
 <pre>{{productForm.value | json}}</pre>
 <pre>valido : {{productForm.valid | json}}</pre>
+

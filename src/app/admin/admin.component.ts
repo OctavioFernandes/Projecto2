@@ -53,24 +53,17 @@ export class AdminComponent implements OnInit {
         }
       }
 
-      // console.log(this.productTypes)
     });
   }
 
   insertProduct() {
-
-    console.log(this.productForm);
-
+    
     if (this.productForm.valid) {
 
       this.servProd.insertProduct(this.productForm.value).subscribe(response => {
-        // console.log("inserido produto");
         this.productForm.reset();
-        // console.log(this.productForm);
       })
     }
-    // else {      
-    // }  
   }
 
   getProducts(searchedContent: string) {
@@ -79,7 +72,6 @@ export class AdminComponent implements OnInit {
 
     this.servProd.filterProducts(filter, this.recPage).subscribe(response => {
       this.filterProducts = response;
-      // console.log(this.filterProducts);
     });
   }
 
@@ -107,8 +99,6 @@ export class AdminComponent implements OnInit {
   }
 
   validateUser(user: User) {
-    // console.log("recebi user");
-    // console.log(user);
 
     let userValid= {
         nome: user.nome,
@@ -123,14 +113,9 @@ export class AdminComponent implements OnInit {
         admin: user.admin
       }
 
-      // console.log(userValid);
-
     this.servLoged.activateUser(userValid, user.id!).subscribe(response=>{
-      console.log(response);
       this.getUsers();
     })
-
   }
-
 
 }

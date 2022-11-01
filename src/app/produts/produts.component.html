@@ -27,13 +27,10 @@
                 <p>Total de resultados: {{totalProducts}}</p>
             </div>
 
-            <!-- <div> -->
             <div class="productsshowspace">
                 <div *ngFor="let product of productsList" class="box">
                     <div class="formatimg">
 
-
-                        <!-- *ngIf="servLogin.loged" -->
                         <div *ngIf="servLogin.loged" class="wishlist">
 
                             <i class="fa-solid fa-cart-shopping fa-lg" title="Adicionar ao carrinho"
@@ -44,21 +41,6 @@
 
                             <i (click)="removeWishlist(product.id)" *ngIf="wishList(product.id)"
                                 class="fas fa-star fa-lg" title="Remover da Wishlist"></i>
-
-
-
-                            <!-- Teste wish list com ngFor -->
-
-                            <!-- <div *ngFor="let wishlist of servLogin.user.wishlist">
-                                <i *ngIf="(wishlist === product.id)" class="fas fa-star fa-lg" #star></i>
-                            </div> -->
-
-                            <!-- Inicial -->
-
-                            <!-- <i class="far fa-star fa-lg"></i>
-
-                            <i class="fas fa-star fa-lg"></i> -->
-
 
                         </div>
 
@@ -89,7 +71,6 @@
                     </div>
                 </div>
             </div>
-            <!-- </div> -->
 
             <div *ngIf="seeMoreButton" class="productsshowfooter" (click)="filterProducts('VerMais','')">
                 Ver mais

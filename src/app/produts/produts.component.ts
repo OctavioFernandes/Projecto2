@@ -20,12 +20,7 @@ export class ProdutsComponent implements OnInit {
   url: string[] = [];
   addUrl: string = "";
   wishlistAddedPopup = false;
-
-  // srcImg : string = "";
-
-
   secoundImg: boolean = false;
-
 
   constructor(private servProd: ProductsserviceService, private router: Router, protected servLogin: LoginserviceService) { }
 
@@ -33,11 +28,9 @@ export class ProdutsComponent implements OnInit {
     this.loadColorsAndTipes();
     this.getPaginateProducts();
     this.filterProducts("StartPage", "");
-    // this.userLoged();
   }
 
   addWishlist(id: number) {
-    // console.log("recebi o id a introduzir: " + id);
     this.servLogin.user.wishlist?.push(id);
     this.wishlistAddedPopup = true;
 
@@ -53,20 +46,7 @@ export class ProdutsComponent implements OnInit {
     this.wishlistAddedPopup = !this.wishlistAddedPopup;
   }
 
-  // Tests Area
-  userLoged() {
-    // console.log("user logado wishList:");
-    // console.log(this.servLogin.user.wishlist);
-    // console.log("user logado:");
-    // console.log(this.servLogin.user);
-  }
-  // Tests Area
-
   wishList(id: number) {
-    // console.log(this.servLogin.user.wishlist)
-    // console.log(id);
-    // console.log(this.servLogin.user.wishlist?.includes(id))
-
     if (this.servLogin.user.wishlist?.includes(id)) {
       return true
     } else {
@@ -86,22 +66,14 @@ export class ProdutsComponent implements OnInit {
         }
       }
 
-      // this.totalProducts = response.length
-      // console.log("totalProducts: "+this.totalProducts)
       this.colorsList.sort();
       this.typesList.sort();
-      // console.log(this.colorsList);
-
-      // console.log(this.typesList);
     })
   }
 
   getPaginateProducts() {
     this.servProd.searchProducts(this.recPage).subscribe(response => {
-
       this.productsList = response;
-      // console.log(this.productsList);
-
     });
   }
 
@@ -115,7 +87,6 @@ export class ProdutsComponent implements OnInit {
 
       case "Tipo":
         field = "&tipo_de_produto=" + value;
-        // console.log(field);
 
         if (!this.url.includes(field)) {
           this.url.push(field);
@@ -127,7 +98,6 @@ export class ProdutsComponent implements OnInit {
 
       case "Cor":
         field = "&cor=" + value;
-        // console.log(field);
 
         if (!this.url.includes(field)) {
           this.url.push(field);
@@ -150,15 +120,11 @@ export class ProdutsComponent implements OnInit {
 
       case "StartPage":
         break;
-      // default:
-      //   break;
     }
 
     for (let i = 0; i < this.url.length; i++) {
       this.addUrl += this.url[i];
     }
-
-    // console.log(this.recPage);
 
     this.servProd.filterProducts(this.addUrl, this.recPage).subscribe(response => {
       this.productsList = response;
@@ -167,7 +133,6 @@ export class ProdutsComponent implements OnInit {
     this.servProd.filterProducts(this.addUrl).subscribe(response => {
       this.totalProducts = response.length;
 
-      // console.log("total:produtos" + this.totalProducts);
       if (this.totalProducts <= 6) {
         this.seeMoreButton = false;
       } else if (this.recPage === this.totalProducts) {
@@ -178,7 +143,6 @@ export class ProdutsComponent implements OnInit {
       }
     });
 
-    //http://localhost:3000/products?limit=6&tipo_de_produto=Calças&cor=Azul&cor=Laranja&tipo_de_produto=Casaco
   }
 
   showProductInfo(id: number) {
@@ -186,12 +150,10 @@ export class ProdutsComponent implements OnInit {
   }
 
   showSecondImage() {
-    // console.log("hover")
     this.secoundImg = true;
   }
 
   showFirstImage() {
-    // console.log("out")
     this.secoundImg = false;
   }
 
@@ -199,12 +161,7 @@ export class ProdutsComponent implements OnInit {
 
     if (!this.servProd.shoppingCart.includes(id)) {
       this.servProd.shoppingCart.push(id);
-    }    
-    console.log(this.servProd.shoppingCart);
+    }
   }
 
 }
-
-
-
-// <img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome" class="box">

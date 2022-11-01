@@ -11,10 +11,6 @@ export class LogedguardService implements CanActivate {
   constructor(private loginservice:LoginserviceService, private router: Router) { }
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
-
-    console.log("this.loginservice.loged");
-    console.log(this.loginservice.loged);
-
     if (this.loginservice.loged) {
       return true;      
     } else {

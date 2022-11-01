@@ -16,7 +16,6 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Email</mat-label>
-            <!-- <input matInput formControlName="email"> -->
             <input *ngIf="insertMode" matInput formControlName="email">
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.email}}">
             <input *ngIf="!insertMode && editUserData" matInput formControlName="email">
@@ -25,15 +24,10 @@
                 Por favor insira um email válido
             </mat-error>
 
-            <!-- <mat-error *ngIf="formProfile.controls['email'].errors?.['validEmail']">
-                Este email já existe na BD
-            </mat-error> -->
-
         </mat-form-field>
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Senha</mat-label>
-            <!-- <input type="password" matInput formControlName="password"> -->
             <input *ngIf="insertMode" matInput formControlName="password">
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.password}}">
             <input *ngIf="!insertMode && editUserData" matInput formControlName="password">
@@ -47,7 +41,6 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Morada</mat-label>
-            <!-- <input matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada"> -->
             <input *ngIf="insertMode" matInput placeholder="Ex. Rua marquês de pombal" formControlName="morada">
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.morada}}">
             <input *ngIf="!insertMode && editUserData" matInput formControlName="morada">
@@ -55,7 +48,6 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>Código-postal</mat-label>
-            <!-- <input matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal"> -->
 
             <input *ngIf="insertMode" matInput #ZipCode maxlength="8" placeholder="Ex. 3789-418" formControlName="codigoPostal">
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.codigoPostal}}">
@@ -69,7 +61,6 @@
 
         <mat-form-field class="example-full-width" appearance="fill">
             <mat-label>País</mat-label>
-            <!-- <input type="text" matInput placeholder="Ex. Portugal" formControlName="pais"> -->
             <input *ngIf="insertMode" matInput placeholder="Ex. Portugal" formControlName="pais">
             <input *ngIf="!insertMode && !editUserData" matInput disabled value="{{user.pais}}">
             <input *ngIf="!insertMode && editUserData" matInput formControlName="pais">
@@ -82,7 +73,6 @@
             <button *ngIf="formProfile.valid && insertMode" mat-raised-button color="warn">Registar!</button>            
 
             <button *ngIf="formProfile.valid && !insertMode && editUserData" mat-raised-button color="warn">Alterar informação</button>
-            <!-- (click)="insertUser()" -->
 
             <button *ngIf="!insertMode && !editUserData" mat-raised-button color="warn" (click)="activeEditMode()">Editar dados!</button>
 
@@ -109,8 +99,3 @@
         <button mat-raised-button color="warn" (click)="closeEmailExistPopUp()">Ok!</button>
     </div>
 </div>
-
-<!-- 
-<pre>
-    {{formProfile.value|json}}
-</pre> -->

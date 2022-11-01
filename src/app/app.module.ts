@@ -14,7 +14,6 @@ import { HomeComponent } from './home/home.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { HeaderComponent } from './header/header.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
-import { ProfileComponent } from './profile/profile.component';
 import { CreateprofileComponent } from './createprofile/createprofile.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProdutsComponent } from './produts/produts.component';
@@ -30,7 +29,6 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
     PagenotfoundComponent,
     HeaderComponent,
     WishlistComponent,
-    ProfileComponent,
     CreateprofileComponent,
     FooterComponent,
     ProdutsComponent,

@@ -16,8 +16,6 @@ export class ShoppingcartComponent implements OnInit {
   produtsQtd: number = 0;
   totalBill: number = 0;
 
-
-
   constructor(protected servProd: ProductsserviceService) { }
 
   ngOnInit(): void {
@@ -50,7 +48,6 @@ export class ShoppingcartComponent implements OnInit {
           this.cart.push(cartPos);
         }
         this.cart.sort((a, b) => a.id! - b.id!);
-        console.log(this.cart);
         this.getTotals();
       })
     }
@@ -84,9 +81,6 @@ export class ShoppingcartComponent implements OnInit {
     this.cart.sort((a, b) => a.id! - b.id!);
 
     this.getTotals();
-    // console.log("newCart")
-    // console.log(newCart)
-
   }
 
   qtdDown(id: number) {
@@ -120,9 +114,6 @@ export class ShoppingcartComponent implements OnInit {
       this.produtsQtd += this.cart[i].qtd;
       this.totalBill += (this.cart[i].preco * this.cart[i].qtd);
     }
-
-    console.log("this.produtsQtd" + this.produtsQtd);
-    console.log("this.totalBill" + this.totalBill);
   }
 }
 

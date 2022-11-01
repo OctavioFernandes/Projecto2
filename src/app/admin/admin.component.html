@@ -9,8 +9,6 @@
                 <label>Produto:</label><input type="text" formControlName="nome">
             </div>
 
-
-
             <div class="line">
                 <label>Marca:</label><input type="text" formControlName="marca">
             </div>
@@ -62,7 +60,7 @@
 
 <div class="searchbox">
     <label>Pesquisa:</label>
-    <input type="text" #searchedContent value="aa">
+    <input type="text" #searchedContent>
     <button mat-raised-button color="primary" class="searchtbtn"
         (click)="getProducts(searchedContent.value)">Pesquisa</button>
     <button mat-raised-button color="primary" class="searchtbtn"
@@ -101,7 +99,7 @@
                         <div>Tem a certeza que pretende eliminar o produto?</div>
                         <button mat-raised-button color="warn"
                             (click)="deleteProduct(prod.id, searchedContent.value)">Sim</button>
-                        <!-- <button mat-raised-button color="warn" (click)="closeUserPopUp()">Sim</button> -->
+
                         <button mat-raised-button color="warn" (click)="hideDeletePopup()">Não</button>
                     </div>
                 </div>
@@ -128,23 +126,10 @@
             <td>{{user.email}}</td>
             <td>{{user.active ? '&#10004;' : '&#10005;'}}</td>
             <td *ngIf="!user.active">
-                <i class="fa-solid fa-circle-check" style="color: green; cursor: pointer;" (click)="validateUser(user)"></i>
+                <i class="fa-solid fa-circle-check" style="color: green; cursor: pointer;"
+                    (click)="validateUser(user)"></i>
             </td>
             <td *ngIf="user.active"></td>
         </tr>
     </tbody>
 </table>
-
-<!-- <div class="usercontainer">
-    <div class="userbox" *ngFor="let user of usersList">
-        <div class="box">{{user.nome}}</div>
-        <div class="box">{{user.email}}</div>
-        <div class="box">{{user.active}}</div>        
-        <div></div>
-    </div>
-</div> -->
-
-
-
-<pre>{{productForm.value | json}}</pre>
-<pre>valido : {{productForm.valid | json}}</pre>

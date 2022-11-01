@@ -12,15 +12,11 @@ export class ProductsserviceService {
 
   addUrl! :string;
 
-  // shoppingCart:number[] = [];
+  shoppingCart:number[] = [];
 
   // Test Area
 
-  shoppingCart:number[] = [1,2,3,4];
-
-
-
-  // public urlAPIseacrh : string = "http://localhost:3000/products";
+  // shoppingCart:number[] = [1,2,3,4];
 
   constructor(private http: HttpClient, private servLogin: LoginserviceService) { }
 
@@ -38,15 +34,7 @@ export class ProductsserviceService {
 
   }
 
-  // console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
-  // filterProducts(recPage: number, filter: string) {
-  //   return this.http.get<Product[]>(`${this.urlAPI}?_limit=${recPage}${filter}`);
-  // }
-
   filterProducts(filter: string, recPage?: number) {
-    // console.log("recPage:");
-    // console.log(`${this.urlAPI}?_limit=${recPage}${filter}`);
-
     if (recPage === undefined) {
       return this.http.get<Product[]>(`${this.urlAPI}?${filter}`);
     } else {
@@ -62,8 +50,6 @@ export class ProductsserviceService {
       this.addUrl += "&id=" + this.servLogin.user.wishlist![i];      
     };
 
-    // console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
-
     return this.http.get<Product[]>(`${this.urlAPI}?${this.addUrl}`);
   }
 
@@ -77,16 +63,7 @@ export class ProductsserviceService {
 
 
   getShoppingCart(filter:string){
-      console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
-
       return this.http.get<Product[]>(`${this.urlAPI}?${filter}`);
   }
-
-  //http://localhost:3000/products?tipo_de_produto=Calças&cor=Azul&_limit=100
-
-  //http://localhost:3000/products?limit=6&tipo_de_produto=Calças&cor=Azul&cor=Laranja&tipo_de_produto=Casaco
-
-
-
-
+  
 }

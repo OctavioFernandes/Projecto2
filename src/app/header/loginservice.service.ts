@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { User } from '../shared/user';
 import { HttpClient } from '@angular/common/http';
-import { ActivatedRouteSnapshot, CanActivate, RouterStateSnapshot, UrlTree } from '@angular/router';
-import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -11,27 +9,26 @@ export class LoginserviceService {
 
   private urlAPI = "http://localhost:3000";
 
-  // loged : boolean = false;
-  // user! : User;
-
+  loged : boolean = false;
+  user! : User;
   admin : boolean = false;
 
   // testes Area
 
-  loged : boolean = true;
+  // loged : boolean = true;
 
-  user : User = {
-    nome: "Octávio Fernandes",
-    email: "octavio@gmail.com",
-    password: "#Portugal2022",
-    morada: "Santo Tirso",
-    codigoPostal: "4795-418",
-    pais: "Portugal",
-    wishlist: [1,3,4],
-    "active": true,
-    "id": 2,
-    admin:true
-  }
+  // user : User = {
+  //   nome: "Octávio Fernandes",
+  //   email: "octavio@gmail.com",
+  //   password: "#Portugal2022",
+  //   morada: "Santo Tirso",
+  //   codigoPostal: "4795-418",
+  //   pais: "Portugal",
+  //   wishlist: [1,3,4],
+  //   "active": true,
+  //   "id": 2,
+  //   admin:true
+  // }
   
   // testes Area
   
@@ -64,12 +61,4 @@ export class LoginserviceService {
   activateUser(user : User, id : number) {
     return this.http.put<User>(`${this.urlAPI}/users/${id}`, user);
   }
-
-  // updateWishlist(wishList : number[], id : number) {
-  //   console.log("patch");
-  //   return this.http.patch<User>(`${this.urlAPI}/users/${id}`, (`"wishlist":${wishList}`));
-  // }
-
-//octaviomgfernandes@gmail.com
-
 }

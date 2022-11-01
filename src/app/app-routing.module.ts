@@ -8,7 +8,6 @@ import { HomeComponent } from './home/home.component';
 import { InfoproductComponent } from './infoproduct/infoproduct.component';
 import { PagenotfoundComponent } from './pagenotfound/pagenotfound.component';
 import { ProdutsComponent } from './produts/produts.component';
-import { ProfileComponent } from './profile/profile.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 
@@ -16,7 +15,6 @@ const routes: Routes = [
   { path: '', component: HomeComponent},
   { path: 'home', pathMatch: 'full', redirectTo: '' },
   { path: 'wishlist', component: WishlistComponent, canActivate:[LogedguardService]},
-  { path: 'profile', component: ProfileComponent, canActivate:[LogedguardService]},
   { path: 'createprofile', component: CreateprofileComponent},
   { path: 'products', component: ProdutsComponent},
   { path: 'infoproducts', component: InfoproductComponent},

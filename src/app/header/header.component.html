@@ -11,9 +11,7 @@
                     <div>Polos</div>
                     <div>Sapatos</div>
                     <div routerLink="products" routerLinkActive="activa">Todos</div>
-                    <!-- <div class="teste"></div> -->
                 </div>
-                <!-- <div class="teste"></div> -->
             </div>
 
             <div class="teste"></div>
@@ -69,7 +67,7 @@
 
             <div routerLink="shoppingcart" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i class="fa-solid fa-cart-shopping" title="Shopping Cart"></i></div>
 
-            <div *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</div>
+            <small *ngIf="servLogin.loged">Bem vindo(a) {{user[0].nome}}</small>
 
             <div routerLink="wishlist" routerLinkActive="activa" *ngIf="servLogin.loged" title="Wishlist"><i
                     class="fa-regular fa-clipboard" title="Wishlist"></i></div>

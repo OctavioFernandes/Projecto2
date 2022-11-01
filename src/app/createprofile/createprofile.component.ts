@@ -73,30 +73,6 @@ export class CreateprofileComponent implements OnInit {
 
   }
 
-  // insertUser() {
-
-  //   if (this.formProfile.valid) {
-
-  //     if (this.insertMode) {
-
-  //       this.servLogin.insertUser(this.formProfile.value)
-  //         .subscribe(response => {
-  //           this.validateUserPopUp = true;
-  //         });
-
-  //     } else {
-  //       this.servLogin.editUser(this.formProfile.value, this.servLogin.user.id!)
-  //         .subscribe(response => {
-  //           this.validateUserPopUp = true;
-  //         });
-  //       // Atualizar dados
-  //       // this.validateUserPopUp = true;        
-  //     }
-
-  //   }
-  // }
-
-
   insertUser() {
 
     if (this.formProfile.valid) {
@@ -109,8 +85,6 @@ export class CreateprofileComponent implements OnInit {
             .subscribe(response => {
               this.validateUserPopUp = true;
               this.servLogin.user = {id: this.servLogin.user.id, ...this.formProfile.value};
-
-              // {id: this.idAAlterar, ...this.formCarros.value}
 
             });
         } else {
@@ -158,16 +132,6 @@ export class CreateprofileComponent implements OnInit {
       })
   }
 
-  // validEmail(control: FormControl) {
-
-  //   if (control.value !== null) {
-
-  //     if (this.emailsList.includes(control.value)) {
-  //       return { validEmail: true };
-  //     }
-  //   }
-  //   return null;
-  // }
 }
 
 

@@ -66,13 +66,8 @@ export class HeaderComponent implements OnInit {
           if (this.validEmail(this.formLogin.value.email)) {
 
             if (Array.isArray(this.user) && this.user.length && this.user[0].active) {
-
-              // this.userloged.emit(this.user[0]);
               this.servLogin.user=this.user[0];
-              
-              console.log("user admin ao logar")
-              console.log(this.servLogin.user.admin)
-
+            
               this.statusMsg = "Utilizador válido";
               this.servLogin.loged = true;
               this.servLogin.admin = this.servLogin.user.admin;
@@ -81,9 +76,6 @@ export class HeaderComponent implements OnInit {
               setTimeout(() => this.loginPopUp = false, 1000);
               setTimeout(() => this.statusMsg = "", 1000);
               this.formLogin.reset();
-
-              // console.log("User loged: "+this.servLogin.loged+"\nUser loged data: ");
-              // console.log(this.servLogin.user);
 
             } else {
               this.statusMsg = "Utilizador inexistente!";
@@ -99,14 +91,7 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    // console.log("this.servLogin.user");
-    // console.log(this.servLogin.user);
-
-
     this.servLogin.editUser(this.servLogin.user,this.servLogin.user.id!).subscribe(response=>{
-      // console.log(this.servLogin.user.wishlist)
-      // console.log("user update")
-      // console.log(response)
     });
     this.servLogin.loged = false;
     this.router.navigateByUrl("");
@@ -115,7 +100,6 @@ export class HeaderComponent implements OnInit {
   showOptions(){
     const parent = document.getElementById('dropdowncontainer');
     parent!.style.height = '300px';
-    // parent!.style.borderBottom = '2.5px solid grey';
   }
 
   hideOptions(){

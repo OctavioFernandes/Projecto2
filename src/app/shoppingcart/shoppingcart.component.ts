@@ -44,6 +44,7 @@ export class ShoppingcartComponent implements OnInit {
           }
           this.cart.push(cartPos);
         }
+        this.cart.sort((a, b) => a.id! - b.id!);
         console.log(this.cart);
       })
     }
@@ -57,25 +58,45 @@ export class ShoppingcartComponent implements OnInit {
     this.getCart();
   }
 
-  qtdUp(id : number){
-    this.cart.find(x=>x.id === id)
+  qtdUp(id: number) {
 
-    	let cartRemoved = this.cart.splice(this.cart.indexOf(this.cart.find(x=>x.id === id)!),1);
+    let cartRemoved = this.cart.splice(this.cart.indexOf(this.cart.find(x => x.id === id)!), 1);
 
-      let newCart = {
-        id: cartRemoved[0].id,
-        qtd: cartRemoved[0].qtd + 1 ,
-        foto_principal: cartRemoved[0].foto_principal,
-        nome: cartRemoved[0].nome,
-        preco: cartRemoved[0].preco
-      }
-      console.log("newCart")
-    console.log(newCart)
+
+    let newCart = {
+      id: cartRemoved[0].id,
+      qtd: cartRemoved[0].qtd + 1,
+      foto_principal: cartRemoved[0].foto_principal,
+      nome: cartRemoved[0].nome,
+      preco: cartRemoved[0].preco
+    }
+
+    this.cart.push(newCart);
+    this.cart.sort((a, b) => a.id! - b.id!);
+    // console.log("newCart")
+    // console.log(newCart)
 
   }
 
-  qtdDown(id : number){
+  qtdDown(id: number) {
 
+    let cartRemoved = this.cart.splice(this.cart.indexOf(this.cart.find(x => x.id === id)!), 1);
+
+
+    let newCart = {
+      id: cartRemoved[0].id,
+      qtd: cartRemoved[0].qtd - 1,
+      foto_principal: cartRemoved[0].foto_principal,
+      nome: cartRemoved[0].nome,
+      preco: cartRemoved[0].preco
+    }
+
+    if ((cartRemoved[0].qtd - 1) === 0) {
+      this.removeFromCart(id);
+    } else {
+      this.cart.push(newCart);
+      this.cart.sort((a, b) => a.id! - b.id!);
+    }
   }
 
 }

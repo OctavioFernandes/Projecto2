@@ -1,9 +1,9 @@
-.container{
+.container {
     display: block;
 
 }
 
-.conatinerbox{
+.conatinerbox {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -12,11 +12,12 @@
 
 }
 
-.conatinerbox img{
+.conatinerbox img {
     width: 100px;
     height: 150px;
 }
-.box{
+
+.box {
     margin: 2.5px;
     width: 100px;
     height: 200px;
@@ -29,6 +30,21 @@
     align-items: center;
 }
 
-i{
+i {
     cursor: pointer;
+}
+
+.totaiscontainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.totais {
+    width: 600px;
+    border: 2px solid grey;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
 }

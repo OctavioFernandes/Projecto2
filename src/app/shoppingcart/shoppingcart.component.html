@@ -23,7 +23,9 @@
     </div>
 </div>
 
-<div>
-    <div>Total produtos: {{produtsQtd}}</div>
-    <div>Valor Total: {{totalBill}}</div>
+<div class="totaiscontainer" *ngIf="this.cart.length !== 0">
+    <div class="totais">
+        <div>Total produtos: {{produtsQtd}}</div>
+        <div>Valor Total: {{totalBill}} €</div>
+    </div>
 </div>

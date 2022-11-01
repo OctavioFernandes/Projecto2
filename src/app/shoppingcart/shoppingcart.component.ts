@@ -13,8 +13,8 @@ export class ShoppingcartComponent implements OnInit {
   cartList: Product[] = [];
   cart: Cart[] = [];
 
-  produtsQtd : number = 0;
-  totalBill : number = 0;
+  produtsQtd: number = 0;
+  totalBill: number = 0;
 
 
 
@@ -53,12 +53,12 @@ export class ShoppingcartComponent implements OnInit {
         console.log(this.cart);
         this.getTotals();
       })
-
-      
-
     }
+
+
     this.cartList = [];
     this.cart = [];
+    this.getTotals();
   }
 
   removeFromCart(id: number) {
@@ -111,7 +111,7 @@ export class ShoppingcartComponent implements OnInit {
     this.getTotals();
   }
 
-  getTotals(){
+  getTotals() {
 
     this.produtsQtd = 0;
     this.totalBill = 0;

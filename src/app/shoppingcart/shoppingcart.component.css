@@ -1,0 +1,34 @@
+.container{
+    display: block;
+
+}
+
+.conatinerbox{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+
+}
+
+.conatinerbox img{
+    width: 100px;
+    height: 150px;
+}
+.box{
+    margin: 2.5px;
+    width: 100px;
+    height: 200px;
+    /* border: 2px solid black; */
+    /* background-color: green; */
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+i{
+    cursor: pointer;
+}

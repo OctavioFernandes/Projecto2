@@ -1,5 +1,24 @@
-<p>shoppingcart works!</p>
+<div *ngIf="this.servProd.shoppingCart.length === 0" style="text-align: center; margin: 20px;">
+    Ainda não tem produtos adicionados no carrinho
+</div>
 
-<div *ngFor="let prod of servProd.shoppingCart">
-    <div>{{prod}}</div>
+
+<div *ngFor="let product of cart" class="container">
+    <div class="conatinerbox">
+        <div class="box"><img [src]="'/assets/Imagens/'+product.foto_principal" [alt]="product.nome"></div>
+        <div class="box">
+            <div>{{product.nome}}</div>
+        </div>
+        <div class="box">
+            <i class="fa-solid fa-caret-up" (click)="qtdUp(product.id!)"></i>
+            <div>{{product.qtd}} un</div>
+            <i class="fa-solid fa-caret-down" (click)="qtdDown(product.id!)"></i>
+        </div>
+        <div class="box">
+            <div>{{product.preco * product.qtd}} €</div>
+        </div>
+        <div class="box">
+            <button mat-raised-button color="warn" (click)="removeFromCart(product.id!)">Remover</button>
+        </div>
+    </div>
 </div>

@@ -12,7 +12,13 @@ export class ProductsserviceService {
 
   addUrl! :string;
 
-  shoppingCart:number[] = [];
+  // shoppingCart:number[] = [];
+
+  // Test Area
+
+  shoppingCart:number[] = [1,2,3,4];
+
+
 
   // public urlAPIseacrh : string = "http://localhost:3000/products";
 
@@ -52,11 +58,11 @@ export class ProductsserviceService {
 
     this.addUrl = "";
 
-    for (let i = 0; i < this.shoppingCart.length; i++) {
-      this.addUrl += "&id=" + this.shoppingCart[i];      
+    for (let i = 0; i < this.servLogin.user.wishlist?.length!; i++) {
+      this.addUrl += "&id=" + this.servLogin.user.wishlist![i];      
     };
 
-    console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
+    // console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
 
     return this.http.get<Product[]>(`${this.urlAPI}?${this.addUrl}`);
   }
@@ -70,17 +76,10 @@ export class ProductsserviceService {
   }
 
 
-  getShoppinCart(){
+  getShoppingCart(filter:string){
+      console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
 
-    this.addUrl = "";
-
-    for (let i = 0; i < this.servLogin.user.wishlist?.length!; i++) {
-      this.addUrl += "&id=" + this.servLogin.user.wishlist![i];      
-    };
-
-    // console.log("url: "+`${this.urlAPI}?${this.addUrl}`);
-
-    return this.http.get<Product[]>(`${this.urlAPI}?${this.addUrl}`);
+      return this.http.get<Product[]>(`${this.urlAPI}?${filter}`);
   }
 
   //http://localhost:3000/products?tipo_de_produto=Calças&cor=Azul&_limit=100

@@ -10,27 +10,28 @@ import { Observable } from 'rxjs';
 export class LoginserviceService {
 
   private urlAPI = "http://localhost:3000";
-  loged : boolean = false;
-  user! : User;
+
+  // loged : boolean = false;
+  // user! : User;
 
   admin : boolean = false;
 
   // testes Area
 
-  // loged : boolean = true;
+  loged : boolean = true;
 
-  // user : User = {
-  //   nome: "Octávio Fernandes",
-  //   email: "octavio@gmail.com",
-  //   password: "#Portugal2022",
-  //   morada: "Santo Tirso",
-  //   codigoPostal: "4795-418",
-  //   pais: "Portugal",
-  //   wishlist: [1,3,4],
-  //   "active": true,
-  //   "id": 2,
-  //   admin:true
-  // }
+  user : User = {
+    nome: "Octávio Fernandes",
+    email: "octavio@gmail.com",
+    password: "#Portugal2022",
+    morada: "Santo Tirso",
+    codigoPostal: "4795-418",
+    pais: "Portugal",
+    wishlist: [1,3,4],
+    "active": true,
+    "id": 2,
+    admin:true
+  }
   
   // testes Area
   

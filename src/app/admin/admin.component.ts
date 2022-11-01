@@ -33,9 +33,11 @@ export class AdminComponent implements OnInit {
       cor: new FormControl('', [Validators.required]),
       preco: new FormControl('', [Validators.required]),
       descricao: new FormControl('', [Validators.required]),
-      foto_principal: new FormControl(' ', [Validators.required]),
-      foto_secundaria: new FormControl(' ', [Validators.required]),
-      destaque: new FormControl(false, [Validators.required])
+      foto_principal: new FormControl(' ', { initialValueIsDefault : true, validators:[Validators.required]}),
+      foto_secundaria: new FormControl(' ', { initialValueIsDefault : true, validators: [Validators.required]}),
+      destaque: new FormControl(false, { initialValueIsDefault : true, validators: [Validators.required]})
+
+      // marca : new FormControl('', { initialValueIsDefault : true, validators: [Validators.required,Validators.pattern('[A-Za-z ]{3,20}')]}),
 
     });
 
@@ -61,8 +63,9 @@ export class AdminComponent implements OnInit {
     if (this.productForm.valid) {
 
       this.servProd.insertProduct(this.productForm.value).subscribe(response => {
-        this.productForm.reset();
-      })
+
+      });
+      this.productForm.reset();
     }
   }
 

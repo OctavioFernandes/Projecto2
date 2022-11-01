@@ -13,8 +13,8 @@ export class ShoppingcartComponent implements OnInit {
   cartList: Product[] = [];
   cart: Cart[] = [];
 
-  produtsQtd!: number;
-  totalBill!: number;
+  produtsQtd : number = 0;
+  totalBill : number = 0;
 
 
 
@@ -22,6 +22,7 @@ export class ShoppingcartComponent implements OnInit {
 
   ngOnInit(): void {
     this.getCart();
+    this.getTotals();
   }
 
   getCart() {
@@ -50,7 +51,11 @@ export class ShoppingcartComponent implements OnInit {
         }
         this.cart.sort((a, b) => a.id! - b.id!);
         console.log(this.cart);
+        this.getTotals();
       })
+
+      
+
     }
     this.cartList = [];
     this.cart = [];
@@ -77,6 +82,8 @@ export class ShoppingcartComponent implements OnInit {
 
     this.cart.push(newCart);
     this.cart.sort((a, b) => a.id! - b.id!);
+
+    this.getTotals();
     // console.log("newCart")
     // console.log(newCart)
 
@@ -101,11 +108,21 @@ export class ShoppingcartComponent implements OnInit {
       this.cart.push(newCart);
       this.cart.sort((a, b) => a.id! - b.id!);
     }
+    this.getTotals();
   }
 
   getTotals(){
-    
-  }
 
+    this.produtsQtd = 0;
+    this.totalBill = 0;
+
+    for (let i = 0; i < this.cart.length; i++) {
+      this.produtsQtd += this.cart[i].qtd;
+      this.totalBill += (this.cart[i].preco * this.cart[i].qtd);
+    }
+
+    console.log("this.produtsQtd" + this.produtsQtd);
+    console.log("this.totalBill" + this.totalBill);
+  }
 }
 

@@ -11,8 +11,12 @@ import { ProductsserviceService } from '../shared/productsservice.service';
 export class ShoppingcartComponent implements OnInit {
 
   cartList: Product[] = [];
+  cart: Cart[] = [];
 
-  cart: Cart[] = []
+  produtsQtd!: number;
+  totalBill!: number;
+
+
 
   constructor(protected servProd: ProductsserviceService) { }
 
@@ -97,6 +101,10 @@ export class ShoppingcartComponent implements OnInit {
       this.cart.push(newCart);
       this.cart.sort((a, b) => a.id! - b.id!);
     }
+  }
+
+  getTotals(){
+    
   }
 
 }
